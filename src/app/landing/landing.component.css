@@ -1,0 +1,221 @@
+.LandingContainer{
+    position: relative;
+    overflow:auto;
+    height: 100%;
+}
+
+
+.LandingHeader{
+    position: absolute;
+    z-index:1;
+    top: 0;
+    right: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    gap: 15px;
+    background: linear-gradient(269.98deg, #FFFFFF 49.25%, rgba(255, 255, 255, 0) 84.94%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+
+.LogoWrapper{
+    display:none;
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+}
+
+.LogoImg{
+    height:100px;
+}
+
+
+
+.TextWrapper{
+    position: absolute; 
+    right: 40px; 
+
+    height: calc(100% - 110px);
+    width: calc(100% - 40px);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items:flex-end;
+    justify-content:flex-start;
+    align-content:space-around;
+    margin-top: 100px ;
+    text-align: right;
+    padding:10px;
+    
+}
+
+
+.RedTextStyle{
+    position: relative; 
+    color: #7b8b9a; 
+    font-family: "Roboto", "sans-serif";
+    line-height: 56px; 
+    font-size: 54px; 
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+
+
+.GrayTextStyle{
+    position: relative; 
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Roboto", "sans-serif";
+    line-height: 38px; 
+    font-size: 36px; 
+    font-weight: 700;
+    border-radius: 4px;
+    padding:10px;
+
+}
+
+
+
+.GreenTextStyle{
+    color: #455439; 
+    font-family: "Roboto", "sans-serif";
+    line-height: 38px; 
+    font-size: 36px; 
+    font-weight: 700;
+}
+
+
+.SecondaryTextWrapper{
+    width: 100%;
+    max-width:400px;
+    padding: 15px;
+    border-radius: 10px; 
+    cursor:pointer;
+    user-select:none;
+
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.SecondaryTextWrapper:hover{
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.SecondaryText{
+    font-family: "Roboto", "sans-serif"; 
+    line-height: 18px; 
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.QuestionText{
+    font-weight: 700;   
+}
+
+.AnswerText{
+    font-weight: 400;
+}
+
+.StartFreeWrapper{
+    position:absolute;
+    bottom: 10%;
+    left: 30%
+}
+
+.TwoFoodPlates{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.TwoFoodPlatesWrapper{
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    bottom: 0; 
+    left: 0; 
+    height: 100%; 
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .LogoWrapper{
+        display:block;
+    }
+
+    /* .TextWrapper{
+        right: 15%;
+        width: calc(100% - 15%);
+    } */
+
+    .RedTextStyle{
+        font-size: 72px; 
+        line-height: 74px; 
+    }
+
+    .GrayTextStyle{
+        line-height: 56px; 
+        font-size: 54px; 
+    }
+
+    .GreenTextStyle{
+        line-height: 56px; 
+        font-size: 54px; 
+    }
+
+    .SecondaryTextWrapper{
+        width: 500px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .RedTextStyle{
+        font-size: 94px; 
+        line-height: 96px; 
+    }
+
+    .GrayTextStyle{
+        line-height: 78px; 
+        font-size: 76px; 
+    }
+
+    .GreenTextStyle{
+        line-height: 78px; 
+        font-size: 76px; 
+    }
+
+    .SecondaryTextWrapper{
+        width: 600px;
+    }
+
+    .SecondaryText{
+        line-height: 20px; 
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .RedTextStyle{
+        font-size: 128px; 
+        line-height: 130px; 
+    }
+
+    .GrayTextStyle{
+        line-height: 99px; 
+        font-size: 97px; 
+    }
+
+    .GreenTextStyle{
+        line-height: 99px; 
+        font-size: 97px; 
+    }
+}

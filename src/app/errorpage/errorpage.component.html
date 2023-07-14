@@ -1,0 +1,48 @@
+<app-layout *ngIf="isLoggedIn; else appContent">
+    <div style='
+        min-height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;'
+    >
+        <p class="RedTextStyle">
+            This page does not exist
+        </p>
+        <p class="GrayTextStyle">
+            It looks like you found a glitch in the matrix...
+        </p>
+        <app-button
+            (click)="navigate('/dashboard')"
+            widthProp="250px"
+        >
+        Go to home page
+        </app-button>
+    </div>
+</app-layout>
+   
+    
+<ng-template #appContent>
+    <app-content>
+        <div style='
+            min-height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;'
+        >
+            <p class="RedTextStyle">
+                This page does not exist
+            </p>
+            <p class="GrayTextStyle">
+                It looks like you found a glitch in the matrix...
+            </p>
+            <app-button
+            (click)="navigate('/dashboard')"
+                widthProp="250px"
+            >
+            Go to home page
+            </app-button>
+        </div>
+    </app-content>
+</ng-template>

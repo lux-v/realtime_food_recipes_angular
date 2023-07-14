@@ -1,0 +1,226 @@
+<div 
+    class="ItemsWrapper"
+    [ngStyle]="{
+        'width': isSidebarOpen ? '240px' : '60px'
+    }"
+>
+    <a
+        routerLink="/dashboard"
+        class="HeaderNavLink"
+        [ngClass]="{
+            'active': activeLink === 'dashboard'
+        }
+        "
+    >
+        <ng-container *ngIf="isSidebarOpen; else dashboardIcon">
+        <div class="IconTextWrapper">
+
+            <img class="IconStyle" 
+            src="../../../assets/img/dashboard-icon.svg" 
+            alt="dashboard-icon"
+            >
+            <!-- <svg
+            class="IconStyle"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            >
+            <path
+                src="../../assets/img/icons/dashboard.svg"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 12h1M3 6h18M3 18h13"
+            />
+            </svg> -->
+            <p class="IconText">Dashboard</p>
+        </div>
+        </ng-container>
+        
+        <ng-template #dashboardIcon>
+        <!-- <svg
+        class="IconStyle"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        >
+        <path
+            
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 12h18M3 6h18M3 18h18"
+        />
+        </svg> -->
+        <img class="IconStyle" 
+        src="../../../assets/img/dashboard-icon.svg" 
+        alt="dashboard-icon"
+        >
+        </ng-template>
+    </a>
+
+    <a
+        routerLink="/recipes"
+        class="HeaderNavLink"
+        [ngClass]="{
+            'active': activeLink === 'recipes'
+        }
+        "
+    >
+        <ng-container *ngIf="isSidebarOpen; else foodIcon">
+        <div class="IconTextWrapper">
+
+            <img class="IconStyle" 
+            src="../../../assets/img/food-icon.svg" 
+            alt="food-icon"
+            >
+            <!-- <svg
+            class="IconStyle"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            >
+            <path
+                src="../../assets/img/icons/dashboard.svg"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 12h1M3 6h18M3 18h13"
+            />
+            </svg> -->
+            <p class="IconText">Recipes</p>
+        </div>
+        </ng-container>
+        
+        <ng-template #foodIcon>
+        <!-- <svg
+        class="IconStyle"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        >
+        <path
+            
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 12h18M3 6h18M3 18h18"
+        />
+        </svg> -->
+        <img class="IconStyle" 
+        src="../../../assets/img/food-icon.svg" 
+        alt="food-icon"
+        >
+        </ng-template>
+    </a>
+
+    <a
+        routerLink="/how-it-works"
+        class="HeaderNavLink"
+        [ngClass]="{
+            'active': activeLink === 'how-it-works'
+        }"
+        
+    >
+        <ng-container *ngIf="isSidebarOpen; else howItWorksIcon">
+        <div class="IconTextWrapper">
+
+            <img class="IconStyle" 
+                src="../../../assets/img/how-it-works-icon.svg" 
+                alt="how-it-works-icon"
+            >
+            <!-- <svg
+            class="IconStyle"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            >
+            <path
+                src="../../assets/img/icons/dashboard.svg"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 12h1M3 6h18M3 18h13"
+            />
+            </svg> -->
+            <p class="IconText">How It Works</p>
+        </div>
+        </ng-container>
+        
+        <ng-template #howItWorksIcon>
+        <!-- <svg
+        class="IconStyle"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        >
+        <path
+            
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 12h18M3 6h18M3 18h18"
+        />
+        </svg> -->
+        <img class="IconStyle" 
+        src="../../../assets/img/how-it-works-icon.svg" 
+        alt="how-it-works-icon"
+    >
+        </ng-template>
+    </a>
+    
+    <a
+   
+        routerLink="/about-us"
+        class="HeaderNavLink"
+        [ngClass]="{
+            'active': activeLink === 'about-us'
+        }"
+    >
+        <ng-container *ngIf="isSidebarOpen; else aboutUsIcon">
+        <div class="IconTextWrapper">
+
+            <img class="IconStyle" 
+            src="../../../assets/img/about-us-icon.svg" 
+            alt="about-us-icon"
+            >
+            <!-- <svg
+            class="IconStyle"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            >
+            <path
+                src="../../assets/img/icons/dashboard.svg"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 12h1M3 6h18M3 18h13"
+            />
+            </svg> -->
+            <p class="IconText">About us</p>
+        </div>
+        </ng-container>
+        
+        <ng-template #aboutUsIcon>
+        <!-- <svg
+        class="IconStyle"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        >
+        <path
+            
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 12h18M3 6h18M3 18h18"
+        />
+        </svg> -->
+        <img class="IconStyle" 
+        src="../../../assets/img/about-us-icon.svg" 
+        alt="about-us-icon"
+        >
+        </ng-template>
+    </a>
+</div>

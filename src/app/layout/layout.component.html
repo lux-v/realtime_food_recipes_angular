@@ -1,0 +1,12 @@
+<div class="layout-wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <app-content
+    [title]="title"
+    [elements]="elements"
+    [isCentered]="isCentered"
+  >
+    <ng-content></ng-content>
+  </app-content>
+  
+</div>

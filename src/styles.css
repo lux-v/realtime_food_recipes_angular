@@ -1,0 +1,26 @@
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=PT+Serif:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  font-family: 'Century Gothic', sans-serif;
+  height: 100vh;
+}
+
+
+a, p {
+  text-decoration: none;
+}
+
+
+button {
+  font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,136 @@
+<div
+  class="SignUpWrapper"
+>
+  <div class="FormWrapper">
+  
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <div class="LogoContainer">
+            <img
+              class="LogoImg"
+              src="../../assets/img/logo.png"
+              alt="homepage"
+              (click)="navigate('/')"
+            />
+          </div>
+          <div>
+            <p class="LoginHeadText">Sign up</p>
+            <p class="EnterCredentialsText">Enter your credentials to continue</p>
+          </div>
+
+          <div class="FormRow">
+              <img class="FormIcon" 
+              src="../../assets/img/profile.svg" 
+              alt="user" 
+              />
+              <input
+                type="text"
+                id="name"
+                class="FieldStyleType2"
+                [ngClass]="!signUpForm.controls.name.valid && signUpForm.controls.name.touched ? 'error' : ''"
+                formControlName="name"
+                placeholder="Enter your name"
+              />
+            <span
+              class="ErrorMesagge"
+              *ngIf="
+                !signUpForm.controls.name.valid &&
+                signUpForm.controls.name.touched
+              "
+            >
+            Name is required
+            </span>
+          </div>
+
+          <div class="FormRow">
+            <img class="FormIcon" 
+            src="../../assets/img/profile.svg" 
+            alt="user" 
+            />
+            <input
+              type="text"
+              id="email"
+              class="FieldStyleType2"
+              [ngClass]="!signUpForm.controls.email.valid && signUpForm.controls.email.touched ? 'error' : ''"
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+          <span
+            class="ErrorMesagge"
+            *ngIf="
+              !signUpForm.controls.email.valid &&
+              signUpForm.controls.email.touched
+            "
+          >
+          {{ signUpForm.controls.email.errors?.['email'] ? 'Email is invalid' : 'Email is required' }}
+          </span>
+        </div>
+
+        <div class="FormRow">
+          <img class="FormIcon" 
+          src="../../assets/img/key.png" 
+          alt="user" 
+          />
+          <input
+            type="password"
+            id="password"
+            class="FieldStyleType2"
+            [ngClass]="!signUpForm.controls.password.valid && signUpForm.controls.password.touched ? 'error' : ''"
+            formControlName="password"
+            placeholder="Enter the password"
+          />
+          <span
+            class="ErrorMesagge"
+            *ngIf="
+              !signUpForm.controls.password.valid &&
+              signUpForm.controls.password.touched
+            "
+          >
+          {{ signUpForm.controls.password.errors?.['minlength'] ? 'Password must be at least 6 characters' : 'Password is required' }}
+          </span>
+        </div>
+
+        <div class="FormRow">
+          <img class="FormIcon" 
+          src="../../assets/img/key.png" 
+          alt="user" 
+          />
+          <input
+            type="password"
+            id="confirmPassword"
+            class="FieldStyleType2"
+            [ngClass]="signUpForm.errors?.['misMatch'] || signUpForm.errors?.['required'] && signUpForm.controls.confirmPassword.touched ? 'error' : ''"
+            formControlName="confirmPassword"
+            placeholder="Confirm password"
+            (blur)="onBlurConfirmPassword()"
+          />
+          <span
+            class="ErrorMesagge"
+            *ngIf="
+              (signUpForm.errors?.['misMatch'] || signUpForm.errors?.['required']) && 
+              signUpForm.controls.confirmPassword.touched
+            "
+          >
+          {{signUpForm.errors?.["misMatch"] && 'Password mismatch' || 'Confirm password is required'}}
+          </span>
+        </div>
+
+        <div class="FormRow">
+          <div class="ButtonWrapper">
+            <app-button
+              widthProp="100%"
+            >
+              {{ isLoading ? 'Proccessing...' : 'Sign up' }}
+            </app-button>
+          </div>
+        </div>
+
+        <div class="FormRow center">
+        <p class="FormLabel italic">
+          Already have an account? <a class="FormLink" routerLink="/login">
+            Log In.
+          </a>
+        </p>
+        </div>
+      </form>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+  <button
+    [type]="typeProp"
+    [disabled]="disabledProp"
+    class="Button"
+    [ngClass]="{
+      'isSecondary': isSecondary,
+      'isTertiary': isTertiary,
+      'isCancel': isCancel,
+      'isError': isError,
+      'isHidden': isHiddenProp,
+      'isTransparent': isTransparentProp,
+    }"
+
+    
+    [ngStyle]="{
+      'width': widthProp,
+      'height': heightProp,
+    }"
+  >
+      <ng-content></ng-content>
+  </button>

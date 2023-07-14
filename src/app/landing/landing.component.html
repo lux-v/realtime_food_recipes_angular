@@ -1,0 +1,45 @@
+<div class="LandingContainer">
+    <div class="LandingHeader">
+        <app-button class="HeaderButton"  [isSecondary]="true" (click)="navigate('/how-it-works')">How It Works</app-button>
+        <app-button class="HeaderButton"  [isSecondary]="true" (click)="navigate('/about-us')">About Us</app-button>
+        <app-button class="HeaderButton" (click)="navigate('/login')">Login</app-button>
+        <app-button class="HeaderButton"  [isTertiary]="true" (click)="navigate('/signup')">Start for FREE today</app-button>
+    </div>
+
+    <div class="LogoWrapper">
+        <img alt="logo" class="LogoImg" src="../../assets/img/logo.png" />
+    </div>
+     
+    <div class="TwoFoodPlatesWrapper">
+        <img alt="two food plates" class="TwoFoodPlates" src="../../assets/img/2-food-plates.png" />
+    </div>
+
+    <div class="TextWrapper">
+        <div class="MainTextWrapper">
+            <p class="RedTextStyle">
+                GOOD
+            </p>
+            <p class="RedTextStyle">
+                HEALTH
+            </p>
+            <p class="GrayTextStyle">
+                starts with
+            </p>
+            <p class="GreenTextStyle">
+                GOOD
+            </p>
+            <p class="GreenTextStyle">
+                CHOICES
+            </p>
+        </div>
+
+        <div class="SecondaryTextWrapper">
+            <p class="SecondaryText QuestionText">
+                "What should I eat today?"
+            </p>
+            <p class="SecondaryText AnswerText">
+                We are here to help you! Choose food that you already have in you'r fridge and we will suggest new and innovative recipes that you can try!
+            </p>
+        </div>
+    </div>
+</div>

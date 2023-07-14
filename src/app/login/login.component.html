@@ -1,0 +1,93 @@
+<div
+  class="SignUpWrapper"
+>
+  <div class="FormWrapper">
+  
+        <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+          <div class="LogoContainer">
+            <img
+              class="LogoImg"
+              src="../../assets/img/logo.png"
+              alt="homepage"
+              (click)="navigate('/')"
+            />
+          </div>
+          <div>
+            <p class="LoginHeadText">Welcome back</p>
+            <p class="EnterCredentialsText">Enter your credentials to continue</p>
+          </div>
+
+      
+
+          <div class="FormRow">
+            <img class="FormIcon" 
+            src="../../assets/img/profile.svg" 
+            alt="user" 
+            />
+            <input
+              type="text"
+              id="email"
+              class="FieldStyleType2"
+              [ngClass]="!logInForm.controls.email.valid && logInForm.controls.email.touched ? 'error' : ''"
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+          <span
+            class="ErrorMesagge"
+            *ngIf="
+              !logInForm.controls.email.valid &&
+              logInForm.controls.email.touched
+            "
+          >
+          {{ logInForm.controls.email.errors?.['email'] ? 'Email is invalid' : 'Email is required' }}
+          </span>
+        </div>
+
+        <div class="FormRow">
+          <img class="FormIcon" 
+          src="../../assets/img/key.png" 
+          alt="user" 
+          />
+          <input
+            type="password"
+            id="password"
+            class="FieldStyleType2"
+            [ngClass]="!logInForm.controls.password.valid && logInForm.controls.password.touched ? 'error' : ''"
+            formControlName="password"
+            placeholder="Enter the password"
+          />
+          <span
+            class="ErrorMesagge"
+            *ngIf="
+              !logInForm.controls.password.valid &&
+              logInForm.controls.password.touched
+            "
+          >
+          {{ logInForm.controls.password.errors?.['minlength'] ? 'Password must be at least 6 characters' : 'Password is required' }}
+          </span>
+        </div>
+
+          <div class="FormRow">
+          <div class="ButtonWrapper">
+            <app-button
+              widthProp="100%"
+            >
+              {{ isLoading ? 'Proccessing...' : 'Log in' }}
+            </app-button>
+          </div>
+        </div>
+
+        <div class="FormRow right" >
+          <a class="FormLink" routerLink='/password-reset'>
+            Forgot your password?
+          </a>
+        </div>
+
+        <div class="FormRow center">
+        <p class="FormLabel italic">
+          Don't have an account? <a class="FormLink" routerLink="/signup">Sign up.</a>
+        </p>
+        </div>
+        </form>
+  </div>
+</div>

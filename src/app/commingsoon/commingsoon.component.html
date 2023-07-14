@@ -1,0 +1,48 @@
+<app-layout *ngIf="isLoggedIn; else appContent">
+    <div style='
+        min-height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;'
+    >
+        <p class="RedTextStyle">
+            COMING SOON
+        </p>
+        <p class="GrayTextStyle">
+            This page is under construction...
+        </p>
+        <app-button
+        (click)="backClicked()"
+        widthProp="250px"
+        >
+        Go back
+        </app-button>
+    </div>
+</app-layout>
+   
+    
+<ng-template #appContent>
+    <app-content>
+        <div style='
+            min-height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;'
+        >
+            <p class="RedTextStyle">
+                COMING SOON
+            </p>
+            <p class="GrayTextStyle">
+                This page is under construction...
+            </p>
+            <app-button
+            (click)="backClicked()"
+                widthProp="250px"
+            >
+            Go back
+        </app-button>
+        </div>
+    </app-content>
+</ng-template>

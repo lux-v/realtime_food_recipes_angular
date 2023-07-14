@@ -1,0 +1,15 @@
+<div class="LeftSideWrapper">
+  <a routerLink="/dashboard">
+    <img class="LogoImg" src='../../../assets/img/logo.png' alt="logo" />
+  </a>
+  <img class="HamburgerIcon left" src='../../../assets/img/hamburger-icon.svg' alt="hamburger" (click)="handleHamburgerClick()" />
+</div>
+
+<div class="HeaderProfileWrapper">
+  <nav class="HeaderProfile">
+    <img class="ProfileImg" src='../../../assets/img/profile.svg' alt="profile" />
+    <img class="Arrow" src='../../../assets/img/arrow-icon.svg' alt="arrow" />
+  </nav>
+  <app-button class="HeaderButton" (click)="logout()">Logout</app-button>
+  <img class="HamburgerIcon" src='../../../assets/img/hamburger-icon.svg' alt="hamburger" (click)="handleHamburgerClick()"  />
+</div>

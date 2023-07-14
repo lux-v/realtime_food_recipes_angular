@@ -1,0 +1,100 @@
+:host{
+  min-height: 100vh;
+  flex-grow: 1;
+  background: #eef2f6dc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 12px;
+  z-index: 0;
+  position: relative;
+}
+
+/* https://indepth.dev/posts/1469/techniques-to-style-component-host-element-in-angular */
+
+:host[isLoggedIn='true'] {
+  min-height: calc(100vh - 60px);
+  margin:60px 10px 0 0; 
+}
+
+@media (min-width: 768px) {
+  :host {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :host {
+    transition: all 0.2s ease-in;
+  }
+      :host[isSidebarOpen='false'][isLoggedIn='true'] {
+        margin-left: -180px;
+      }
+   
+}
+
+
+.Background{
+    background-repeat: repeat;
+    width: calc(100% - 20px);
+    height:  calc(100% - 20px);
+
+    opacity: 0.03;
+
+    position: absolute;
+    z-index: -1;
+    object-fit: contain;
+}
+
+
+.NavigationWrapper{
+    position:relative;
+    display: flex;
+    flex-flow: wrap;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    min-height: 50px;
+    color: #121926;
+    background: #fff;
+    border-radius: 8px;
+    padding:5px 15px;
+}
+
+
+.TitleButtonWrapper{
+    display: flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:space-between;
+    width:60%;
+}
+
+.ChildrenWrapper{
+    position:relative;
+    padding-top:20px;
+    align-items:flex-start;
+}
+
+
+.Title{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.Title.isCentered{
+    text-align: center;
+    width: 100%;
+}
+
+.ButtonWrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 16px;
+}
+
+
+
+
