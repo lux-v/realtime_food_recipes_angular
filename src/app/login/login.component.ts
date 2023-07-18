@@ -26,12 +26,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const isLoggedIn = this.authService.isLoggedIn;
-    console.log(isLoggedIn);
-    if(isLoggedIn) {
-      this.router.navigate(['/dashboard']);
-    }
-
     this.initForm();
   }
 
@@ -58,18 +52,11 @@ export class LoginComponent implements OnInit {
     }
     else {
       const {  email, password } = this.logInForm.value;
-      this.isLoading = true;
 
-      try {
-        
-        await this.authService.login(email, password);
-        this.router.navigate(['/dashboard']);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        this.isLoading = false;
-      }
- 
+      this.isLoading = true;
+      await this.authService.login(email, password);
+      this.isLoading = false;
+      
     }
   }
 

@@ -23,7 +23,7 @@ export class AuthService {
   ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
-    
+
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
           //for now I am saving every data about the user...
@@ -47,34 +47,60 @@ export class AuthService {
 
   // Log in with email/password
   async login(email: string, password: string) {
-    return this.afAuth
-      .signInWithEmailAndPassword(email, password)
-      .then((result) => {
+    try {
+      const result = await this.afAuth.signInWithEmailAndPassword(email, password);
+      const user = result.user;
 
-        const user = result.user;
+      this.router.navigate(['dashboard']);
+      alert("Welcome back, " + user?.displayName + "!")
 
-        alert("Welcome back, " + user?.email + "!")
-
-      })
-      .catch((error) => {
-        window.alert(error.message);
-        this.logout()
-      });
+    }
+    catch (error) {
+      alert(error.message);
+      this.logout()
+    }
   }
+
+
   // Sign up with email/password
-  async signup(email: string, password: string) {
-    return this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        // this.SendVerificationMail();
-        // this.SetUserData(result.user);
+  async signup(displayName: string, email: string, password: string) {
+    try {
+      const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      const user = result.user;
+
+      await user?.updateProfile({
+        displayName: displayName
       })
-      .catch((error) => {
-        window.alert(error.message);
-      });
+
+      try{
+        this.postUserData(user, displayName)
+      }
+      catch(error){
+        console.log(error)
+      }
+
+      this.router.navigate(['dashboard']);
+      alert("Welcome, " + user?.displayName + "!")
+
+    }
+    catch (error) {
+      alert(error.message);
+    }
   }
+
+  async postUserData   (user , displayName:string) {
+    return this.afs.collection('users').doc(user.uid).set({
+      uid: user.uid,
+      displayName: displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+    })
+    .catch((error) => {
+      window.alert(error.message);
+    });
+  };
+  
+
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.currentUser

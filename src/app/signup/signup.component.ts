@@ -30,9 +30,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
-    if(this.authService.isLoggedIn) {
-      this.router.navigate(['/dashboard']);
-    }
     this.initForm();
   }
 
@@ -59,19 +56,17 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
 
-  onSubmit=()=> {
+  onSubmit=async()=> {
     if (!this.signUpForm.valid) {
       this.signUpForm.markAllAsTouched();
       this.signUpForm.updateValueAndValidity();
     }
     else {
       const { name, email, password } = this.signUpForm.value;
+
       this.isLoading = true;
-       setTimeout(async() => {
-        alert("Form Submitted Successfully");
-        this.signUpForm.reset();
-        this.isLoading = false;  
-      }, 2000);
+      await this.authService.signup(name, email, password);
+      this.isLoading = false;
     }
   }
 
