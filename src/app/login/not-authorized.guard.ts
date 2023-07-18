@@ -12,7 +12,7 @@ import { AuthService } from '../shared/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 
-export class AuthGuard implements CanActivate {
+export class NotAuthorizedGuard implements CanActivate {
 
   constructor(
     private router: Router,
@@ -30,11 +30,11 @@ export class AuthGuard implements CanActivate {
   {
    const isAuth = this.authService.isLoggedIn;
 
-    if(isAuth) {
+    if(!isAuth) {
       return true;
     }
     else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/dashboard']);
       return false;
     }
   }

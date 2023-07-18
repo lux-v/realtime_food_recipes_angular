@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //guard
-import { AuthGuard } from './login/auth.guard';
+import { AuthorizedGuard } from './login/authorized.guard';
 //components
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingComponent } from './landing/landing.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
-import { NoAuthGuard } from './login/noauth.guard';
+import { NotAuthorizedGuard } from './login/not-authorized.guard';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'dashboard', 
     component: DashboardComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthorizedGuard],
 
   },
   {
@@ -38,14 +38,14 @@ const routes: Routes = [
     component: LoginComponent,
     loadChildren: () =>
       import('./login/login.module').then((mod) => mod.LoginModule),
-    canActivate:[NoAuthGuard]
+    canActivate:[NotAuthorizedGuard]
   },
   {
     path: 'signup',
     component: SignupComponent,
     loadChildren: () =>
       import('./signup/signup.module').then((mod) => mod.SignupModule),
-    canActivate:[NoAuthGuard]
+    canActivate:[NotAuthorizedGuard]
   },
 
   { path: '**', component: ErrorpageComponent },
