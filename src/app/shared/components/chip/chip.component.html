@@ -1,0 +1,6 @@
+<div [ngStyle]="chipStyles">
+    <ng-content></ng-content>
+    <span *ngIf="icon" [ngStyle]="iconStyles" (click)="onIconClick()">
+      <!-- Your icon goes here -->
+    </span>
+  </div>

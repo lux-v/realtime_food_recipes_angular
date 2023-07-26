@@ -1,7 +1,8 @@
-/* 
+
 :host{
-    width: 100%;
-} */
+    display: block;
+    width: fit-content;
+}
 
 .Button{
     display: flex;
