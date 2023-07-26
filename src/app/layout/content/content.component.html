@@ -5,11 +5,11 @@
     }"
 />
 
-    <div class="NavigationWrapper" *ngIf="showHeading">
+<div class="NavigationWrapper" *ngIf="showHeading">
     <div class="TitleButtonWrapper">
         <h1 
             class="Title" 
-            [ngIf]="title"   
+            *ngIf="title"
             [ngStyle]="{
                 'text-align': isCentered && 'center' ,
                 'width': isCentered && '100%' ,
@@ -21,8 +21,8 @@
             {{ elements }}
         </div>
     </div>
-    </div>
-    
-    <div class="ChildrenWrapper">
+    <app-breadcrumbs />
+</div>
+<div class="ChildrenWrapper">
     <ng-content></ng-content>
 </div>

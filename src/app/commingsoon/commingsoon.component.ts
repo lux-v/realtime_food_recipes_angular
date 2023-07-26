@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {Location} from '@angular/common';
 //services
 import { AuthService } from '../shared/services/auth.service';
@@ -11,7 +11,8 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class CommingsoonComponent {
 
-  title = 'Error 404 - page not found';
+  @Input()title: string;
+  // title = 'Error 404 - page not found';
   isLoggedIn = this.authService.isLoggedIn;
 
   constructor(

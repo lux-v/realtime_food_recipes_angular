@@ -1,0 +1,39 @@
+
+
+.BreadcrumbsWrapper{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:flex-end;
+    height:40px;
+    padding-left:10px;
+    border-radius:20px;
+}
+
+
+.BreadcrumbsLink{
+    font-weight: 500;
+    font-size: 12.5px;
+    color: #121926;
+    cursor: pointer;
+    
+}
+
+.BreadcrumbsLink.notLast{
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.DashboardIcon{
+    height:20px;
+    width:auto;
+    stroke: white;
+    cursor: pointer;
+    stroke:#7b8b9a;
+}
+
+.ChevronRight{
+    margin: 0px 0.75rem;
+    width: 10px;
+    height: 12px;
+}

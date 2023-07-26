@@ -22,7 +22,9 @@ export class ContentComponent {
 
   @HostBinding('attr.isLoggedIn') get isLoggedIn() { return this.authService.isLoggedIn;}
   @HostBinding('attr.isSidebarOpen') get isSidebarOpen() { return this.sidebarService.isSidebarOpen;}
+  
+  get showHeading() {
+    return this.title || this.elements;
+  }
 
-
-  showHeading = false;
 }

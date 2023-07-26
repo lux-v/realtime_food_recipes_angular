@@ -1,4 +1,4 @@
-<app-layout *ngIf="isLoggedIn; else appContent">
+<app-layout *ngIf="isLoggedIn; else appContent" [title]="title">
     <div style='
         min-height: 100%;
         text-align: center;
@@ -23,7 +23,7 @@
    
     
 <ng-template #appContent>
-    <app-content>
+    <app-content [title]="title">
         <div style='
             min-height: 100%;
             text-align: center;
