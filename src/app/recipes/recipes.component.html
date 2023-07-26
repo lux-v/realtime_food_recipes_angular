@@ -1,5 +1,5 @@
 <app-layout>
-  <app-card title="a">
+  <app-card>
     <app-button headingElement [isTertiary]="true">Filter</app-button>
     <input
         headingElement
@@ -9,7 +9,17 @@
         placeholder="Search name or description"
         onchange="handleSearchInput()"
         />
-    <div>Card Content</div>
+    
+        <div style="margin-bottom: 25px;">
+          <app-button>Add Recipe +</app-button>
+        </div>
+        <div class="RecipeWrapper">
+          <app-recipe-card
+            *ngFor="let recipe of searchRecipe"
+            [recipe]="recipe"
+            (click)="navigate(recipe.id)"
+          ></app-recipe-card>
+        </div>
 
   </app-card>
 </app-layout>

@@ -7,17 +7,27 @@ import { CardComponent } from './components/card/card.component';
 import { CardHeadingComponent } from './components/card/card-heading/card-heading.component';
 import { CardContentComponent } from './components/card/card-content/card-content.component';
 import { CardBottomComponent } from './components/card/card-bottom/card-bottom.component';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
+import { ChipComponent } from './components/chip/chip.component';
 
 
 @NgModule({
   imports: [CommonModule, NgOptimizedImage, ReactiveFormsModule],
   declarations: [
     ButtonComponent, 
-    CardComponent, CardHeadingComponent, CardContentComponent, CardBottomComponent
+    CardComponent, 
+    CardHeadingComponent, 
+    CardContentComponent, 
+    CardBottomComponent, 
+    RecipeCardComponent, ChipComponent
   ],
   exports: [
     ButtonComponent, 
-    CardComponent
+    CardComponent,
+    CardHeadingComponent, 
+    CardContentComponent, 
+    CardBottomComponent, 
+    RecipeCardComponent
   ],
 })
 export class SharedModule {}

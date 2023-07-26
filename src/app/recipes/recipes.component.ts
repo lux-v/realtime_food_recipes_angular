@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ButtonComponent } from '../shared/components/button/button.component';
 import { AuthService } from '../shared/services/auth.service';
 import { RecipesService } from '../shared/services/recipes.service';
@@ -18,7 +19,7 @@ export class RecipesComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private recipeService: RecipesService,
-
+    private router : Router,
    ) {  }
 
   fetchRecipes = async () => {
@@ -37,6 +38,7 @@ export class RecipesComponent implements OnInit {
   }
 
 
+
    handleSearchInput = (e) => {
     const searchValue = e.target.value.toLowerCase();
     if (searchValue === "") {
@@ -49,4 +51,8 @@ export class RecipesComponent implements OnInit {
           recipes.description.toLowerCase().includes(searchValue)
       )
   };
+
+  navigate= (id) => {
+    this.router.navigate([`/recipes/${id}`]);
+  }
 }
