@@ -88,7 +88,7 @@ export class AuthService {
     }
   }
 
-  async postUserData   (user , displayName:string) {
+  async postUserData (user , displayName:string) {
     return this.afs.collection('users').doc(user.uid).set({
       uid: user.uid,
       displayName: displayName,

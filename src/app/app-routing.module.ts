@@ -11,6 +11,7 @@ import { LandingComponent } from './landing/landing.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { NotAuthorizedGuard } from './login/not-authorized.guard';
+import { RecipesComponent } from './recipes/recipes.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'how-it-works',
     component: HowItWorksComponent,
+  },
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    canActivate: [AuthorizedGuard],
   },
   {
     path: 'login',

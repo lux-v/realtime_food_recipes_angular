@@ -1,0 +1,19 @@
+<div class="CardWrapper">  
+  <app-card-heading class="CardHeading" >
+    <a *ngIf="title">{{ title }}</a>
+    <div class="HeadingElementsWrapper" >
+      <ng-content select="[headingElement]"></ng-content>
+    </div>  
+  </app-card-heading>
+
+
+    <app-card-content class="CardContent" >
+      <ng-content></ng-content>
+    </app-card-content>
+    
+    <app-card-bottom class="CardBottom">
+      <ng-content select="[bottomElement]" ></ng-content>
+    </app-card-bottom>
+</div>
+
+

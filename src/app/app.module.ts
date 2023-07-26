@@ -29,6 +29,7 @@ import { LandingComponent } from './landing/landing.component';
 import { CommingsoonComponent } from './commingsoon/commingsoon.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
 
 
@@ -45,6 +46,7 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
     CommingsoonComponent,
     AboutUsComponent,
     HowItWorksComponent,
+    RecipesComponent,
   ],
   imports: [
     BrowserModule,

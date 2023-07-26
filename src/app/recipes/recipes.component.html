@@ -1,0 +1,15 @@
+<app-layout>
+  <app-card title="a">
+    <app-button headingElement [isTertiary]="true">Filter</app-button>
+    <input
+        headingElement
+        type="text"
+        id="searchBar"
+        class="FieldStyleType1 SearchBar"
+        placeholder="Search name or description"
+        onchange="handleSearchInput()"
+        />
+    <div>Card Content</div>
+
+  </app-card>
+</app-layout>

@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CardBottomComponent } from './card-bottom.component';
+
+describe('CardBottomComponent', () => {
+  let component: CardBottomComponent;
+  let fixture: ComponentFixture<CardBottomComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [CardBottomComponent]
+    });
+    fixture = TestBed.createComponent(CardBottomComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

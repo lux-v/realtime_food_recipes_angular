@@ -27,6 +27,10 @@
     padding-right: 20px;
 }
 
+.LogoWrapper{
+    height: 40px;
+}
+
 .LogoImg{
     height:40px;
 }
@@ -85,9 +89,6 @@
     background-color: #7b8b9a;
     cursor: pointer;
 }
-
-
-
 
 
 @media (min-width: 768px) {

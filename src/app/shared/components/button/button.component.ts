@@ -16,4 +16,5 @@ export class ButtonComponent {
   @Input() typeProp?:string ="submit";
   @Input() isHiddenProp?:boolean=false;
   @Input() isTransparentProp?:boolean=false;
+  
 }

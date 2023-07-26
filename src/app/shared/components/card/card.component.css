@@ -1,0 +1,74 @@
+:host{
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display:block;
+}
+  
+  .CardHeading {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    
+    width: 100%;
+    min-height: 72px;
+    font-size: 18px;
+    padding: 24px;
+    border-bottom: 1px solid #c5d0de;
+  }
+
+  .CardHeading:empty{
+    display:none;
+  }
+  
+  
+  .HeadingElementsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  
+  .HeadingElementsWrapper.hasTitle {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .CardContent {
+    display: block;
+    width: 100%;
+    padding: 12px;
+  }
+  
+  
+  .CardBottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    padding: 24px;
+    border-top: 1px solid #c5d0de;
+  }
+
+  .CardBottom:empty{
+    display:none;
+  }
+  
+  @media (min-width: 768px) {
+  .CardHeading {
+      flex-direction: row;
+      }
+    .HeadingElementsWrapper {
+      flex-direction: row;
+    }
+    .CardContent {
+      padding: 24px;
+    }
+  }
+    
