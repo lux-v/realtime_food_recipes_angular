@@ -7,15 +7,10 @@ import { AuthService } from '../shared/services/auth.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent  {
 
   constructor(private authService: AuthService) { }
 
   isLoggedIn = this.authService.isLoggedIn;
-
-  ngOnInit(): void {
-    console.log("DASHBOARD:",this.isLoggedIn);
-
-  }
 
 }

@@ -44,6 +44,7 @@ export class RecipesComponent implements OnInit {
     if (searchValue === "") {
       this.searchRecipe=this.filteredRecipes
     }
+
     this.searchRecipe=
       this.filteredRecipes.filter(
         (recipes) =>

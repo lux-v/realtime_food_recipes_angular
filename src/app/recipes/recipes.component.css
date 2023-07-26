@@ -6,6 +6,14 @@
     justify-items:center;
 }
 
+.LoadingSpinnerWrapper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+}
+
 @media (min-width: 768px) {
     .RecipeWrapper {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

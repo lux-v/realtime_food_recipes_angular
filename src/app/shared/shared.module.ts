@@ -10,6 +10,7 @@ import { CardBottomComponent } from './components/card/card-bottom/card-bottom.c
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { ChipComponent } from './components/chip/chip.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     CardBottomComponent, 
     RecipeCardComponent, 
     ChipComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    LoadingSpinnerComponent
   ],
   exports: [
     ButtonComponent, 
@@ -36,7 +38,8 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     CardBottomComponent, 
     RecipeCardComponent,
     ChipComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    LoadingSpinnerComponent
   ],
 })
 export class SharedModule {}
