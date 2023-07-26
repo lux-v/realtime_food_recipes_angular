@@ -6,7 +6,11 @@
 
 
     <div style="display:flex;" *ngFor="let path of pathNames; let i = index">
-        <a class="BreadcrumbsLink" [ngClass]="i+1<pathNames.length ? 'notLast':''">
+        <a 
+            class="BreadcrumbsLink" 
+            [ngClass]="i+1<pathNames.length ? 'notLast':''" 
+            (click)="i+1<pathNames.length ? navigateBreadcrumb(i) : ''"
+        >
             {{ formatRouteNameForDisplay(path) }}
         </a>
 

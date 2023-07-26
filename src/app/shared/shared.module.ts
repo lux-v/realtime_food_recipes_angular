@@ -13,7 +13,11 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 
 
 @NgModule({
-  imports: [CommonModule, NgOptimizedImage, ReactiveFormsModule],
+  imports: [
+    CommonModule, 
+    NgOptimizedImage, 
+    ReactiveFormsModule
+  ],
   declarations: [
     ButtonComponent, 
     CardComponent, 

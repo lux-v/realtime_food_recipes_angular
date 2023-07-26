@@ -54,8 +54,12 @@ export class BreadcrumbsComponent {
   };
 
   navigateTo = (path) => {
-    
     this.router.navigate([path]);
+  }
+
+  navigateBreadcrumb = (index) => {
+    const path = this.pathNames.slice(0, index + 1).join('/');
+    this.navigateTo(path);
   }
 
 }
