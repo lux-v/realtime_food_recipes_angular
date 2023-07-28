@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule,  Routes } from '@angular/router';
 //guard
 import { AuthorizedGuard } from './login/authorized.guard';
 //components
@@ -12,20 +12,18 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { NotAuthorizedGuard } from './login/not-authorized.guard';
 import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeComponent } from './recipe/recipe.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LandingComponent,
     pathMatch: 'full',
-    
+    canActivate:[NotAuthorizedGuard]
   },
   {
     path: 'dashboard', 
     component: DashboardComponent,
     canActivate: [AuthorizedGuard],
-
   },
   {
     path: 'about-us',
@@ -37,25 +35,11 @@ const routes: Routes = [
   },
   {
     path: 'recipes',
-    component: RecipesComponent,
-    canActivate: [AuthorizedGuard],
-    // children:[
-    //   {
-    //     path:":id",
-    //     component:RecipeComponent,
-    //     canActivate:[AuthorizedGuard]        
-    //   }
-    // ]
-  },
-  {
-    path: 'recipes/:id',
-    component: RecipeComponent,
-    canActivate: [AuthorizedGuard],
-
+    loadChildren: () =>
+      import('./recipes/recipes.module').then((mod) => mod.RecipesModule),
   },
   {
     path: 'login',
-    component: LoginComponent,
     loadChildren: () =>
       import('./login/login.module').then((mod) => mod.LoginModule),
     canActivate:[NotAuthorizedGuard]
@@ -74,7 +58,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 

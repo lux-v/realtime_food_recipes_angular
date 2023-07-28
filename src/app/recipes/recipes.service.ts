@@ -6,9 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RecipesService {
 
   private recipeSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
@@ -21,6 +19,22 @@ export class RecipesService {
     public afs: AngularFirestore, // Inject Firestore service
 
   ) { }
+
+
+  async getUserDataRecipeOwner(userId: string) {
+    return await this.afs.collection("users").doc(userId).get().toPromise().then((res) => {
+      if (res.exists) {
+        return res.data();
+      } else {
+        throw new Error("User not found");
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting user data: ", error);
+      throw error;
+    });
+  }
+
 
 
   getAllRecipesData = async () => {

@@ -8,7 +8,7 @@ import {
 } from '@angular/router';
 import { Observable, map, take } from 'rxjs';
 //services
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../core/auth.service';
 
 @Injectable({ providedIn: 'root' })
 
@@ -28,14 +28,17 @@ export class AuthorizedGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | Observable<boolean | UrlTree> 
   {
-   const isAuth = this.authService.isLoggedIn;
 
-    if(isAuth) {
-      return true;
-    }
-    else {
-      this.router.navigate(['/login']);
-      return false;
-    }
+    return this.authService.isLoggedInSubject.pipe(
+      take(1),
+      map(isLoggedIn => {
+        console.log("authorized guard",isLoggedIn)
+        if (isLoggedIn) {
+          return true;
+        }
+        return this.router.createUrlTree(['/login']);
+      }
+      )
+    );
   }
 }

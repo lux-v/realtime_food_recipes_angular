@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 //services
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/core/auth.service';
 import { SidebarService } from '../sidebar/sidebar.service';
 
 @Component({
@@ -15,6 +15,8 @@ export class HeaderComponent {
   
   constructor(
     public authService: AuthService,
+
+    //this should be DIRECTIVE!!!!
     public sidebarService: SidebarService,
   ) {}
 

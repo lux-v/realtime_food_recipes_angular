@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { arrayRemove, arrayUnion } from '@firebase/firestore';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class RecipeLikeService {
   private isLikedByUser = false;
   private recipeLikes = 0;

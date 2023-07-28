@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../shared/components/button/button.component';
-import { AuthService } from '../shared/services/auth.service';
-import { RecipesService } from '../shared/services/recipes.service';
+import { AuthService } from '../core/auth.service';
+import { RecipesService } from './recipes.service';
 
 @Component({
   selector: 'app-recipes',

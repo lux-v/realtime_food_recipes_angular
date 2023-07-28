@@ -24,8 +24,4 @@ export class SidebarComponent {
  
   @HostBinding('attr.isSidebarOpen') get isSidebarOpen() { return this.sidebarService.isSidebarOpen;}
 
-
-
-
-
 }

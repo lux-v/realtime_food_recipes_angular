@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 //services
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-errorpage',
@@ -12,6 +12,9 @@ import { AuthService } from '../shared/services/auth.service';
 export class ErrorpageComponent {
 
   title = 'Error 404 - page not found';
+
+  // isLoggedIn:boolean = false;
+  
   isLoggedIn = this.authService.isLoggedIn;
 
   constructor(
@@ -23,5 +26,15 @@ export class ErrorpageComponent {
   navigate(path: string) {
     this.router.navigate([path]);
   }
+  // ngOnInit(): void {
+  //   this.authService.userData$.subscribe((userData) => {
+  //     if(userData){
+  //       this.isLoggedIn = true;
+  //     }
+  //     else{
+  //       this.isLoggedIn = false;
+  //     }
+  //   });
+  // }
   
 }

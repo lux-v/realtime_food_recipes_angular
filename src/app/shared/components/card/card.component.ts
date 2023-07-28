@@ -1,5 +1,4 @@
-import { Component, Input,ElementRef,AfterContentInit,AfterViewInit,ChangeDetectorRef , ContentChildren,QueryList, AfterContentChecked, OnInit, ContentChild, ViewChild } from '@angular/core';
-import { CardHeadingComponent } from './card-heading/card-heading.component';
+import { Component, Input,} from '@angular/core';
 
 @Component({
   selector: 'app-card',

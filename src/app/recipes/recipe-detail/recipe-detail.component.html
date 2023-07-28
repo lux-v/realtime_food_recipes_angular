@@ -1,4 +1,4 @@
-<app-layout title="Recipe">
+<app-layout title="Recipe Detail">
     <div #componentRef *ngIf="recipe; else loading">
         <div class="TopSideWrapper">
             <div class="SummaryAndImageWrapper">
@@ -120,11 +120,12 @@
                 </div>
             </div>
         </div>
-
     </div>
 </app-layout>
 
 <ng-template #loading>
-    <app-loading-spinner size="120px">
-    </app-loading-spinner>
+    <div style="display:flex; justify-content:center;">
+        <app-loading-spinner size="120px">
+        </app-loading-spinner>
+    </div>
 </ng-template>

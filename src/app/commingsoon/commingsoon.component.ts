@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {Location} from '@angular/common';
 //services
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-commingsoon',
@@ -10,17 +10,19 @@ import { AuthService } from '../shared/services/auth.service';
   styles: [`:host { display: flex; }`]
 })
 export class CommingsoonComponent {
-
   @Input()title: string;
-  // title = 'Error 404 - page not found';
-  isLoggedIn = this.authService.isLoggedIn;
+
+  isLoggedIn:boolean = false;
 
   constructor(
     private _location: Location,
     private authService: AuthService
-    ) { }
+    ) {
+      this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+        this.isLoggedIn = isLoggedIn;
+      });
+    }
   
-
   backClicked() {
     this._location.back();
   }

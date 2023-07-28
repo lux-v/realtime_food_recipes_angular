@@ -1,18 +1,17 @@
-import { Location } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Location, } from '@angular/common';
+import { Component, ElementRef, ViewChild,OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../shared/services/auth.service';
-import { CheckImageService } from '../shared/services/check-image.service';
-import { RecipeLikeService } from '../shared/services/recipe-like.service';
-import { RecipesService } from '../shared/services/recipes.service';
+import { AuthService } from '../../core/auth.service';
+import { CheckImageService } from '../../shared/services/check-image.service';
+import { RecipeLikeService } from '../recipe-like.service';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-recipe',
-  templateUrl: './recipe.component.html',
-  styleUrls: [ './recipe.component.css','../shared/components/recipe-card/recipe-card.component.css' ]
+  templateUrl: './recipe-detail.component.html',
+  styleUrls: [ './recipe-detail.component.css','../recipe-card/recipe-card.component.css' ]
 })
-export class RecipeComponent {
+export class RecipeDetailComponent implements OnInit {
   @ViewChild('componentRef', { static: false }) componentRef: ElementRef;
 
   recipeId: string;
@@ -54,10 +53,16 @@ export class RecipeComponent {
   }
 
 
+
   fetchRecipe(userData) {
     this.recipeService.recipe$.subscribe(async(recipeData) => {
       if(recipeData){
-        this.fetchRecipeOwnerDetails(recipeData?.createdBy);
+        const recipeOwnerDetails = await this.recipeService.getUserDataRecipeOwner(recipeData?.createdBy);
+
+        this.recipeOwnerDetails = recipeOwnerDetails;
+        this.checkIsRecipeOwner()
+        this.profileImgSrc = await this.checkImage(this.recipeOwnerDetails?.photoURL, '../../assets/img/profile.svg');  
+
         this.formatRecipeDate(recipeData);
                 
         this.recipeLikeService.init(recipeData, userData);
@@ -68,7 +73,6 @@ export class RecipeComponent {
         if(recipeData.id !== this.recipeId){
           this.recipe = null;
         }else{
-          console.log("recipeData: ", recipeData)
           this.recipe = recipeData;
           this.recipeNameList = this.recipe.name.split(' ');
           this.imageSrc = await this.checkImage(recipeData.imgUrl,  '../../assets/img/recipe-image-placeholder.png');
@@ -79,18 +83,6 @@ export class RecipeComponent {
     this.recipeService.getRecipeById(this.recipeId).subscribe();
   }
 
-
-  fetchRecipeOwnerDetails(createdBy) {
-    this.authService.user$.subscribe(async(userData) => {
-        this.recipeOwnerDetails = userData;
-        this.checkIsRecipeOwner() 
-
-        this.profileImgSrc = await this.checkImage(this.recipeOwnerDetails?.photoURL, '../../assets/img/profile.svg');  
-     
-    });
-    this.authService.getUserDataById(createdBy).subscribe();
-  }
-
   handleEditClick() {
     this.router.navigateByUrl(`/recipes/${this.recipeId}/update`); // Replace '/update' with the route path you defined in the routes array
   }
@@ -98,10 +90,6 @@ export class RecipeComponent {
 
   async handleFavoriteClick(e) {
     e.stopPropagation();
-
-    console.log("this.recipe: ", this.recipe)
-    console.log("this.userData: ", this.userData)
-    console.log("this.isLikedByUser: ", this.isLikedByUser)
 
     await this.recipeLikeService.handleLikeRecipe(this.recipe, this.userData, this.isLikedByUser);
     this.isLikedByUser = this.recipeLikeService.getIsLikedByUser();
@@ -113,10 +101,8 @@ export class RecipeComponent {
     
      await this.checkImageService.checkImage(url, placeholderUrl).then((src) => {
       image =  src;
-      console.log("SRC: ", src)
     });
 
-    console.log("IMAGE: ",image)
     return image;
   }
 

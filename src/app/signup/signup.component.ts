@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 //validators
 import { matchpassword } from './matchpassword.validatior';
 //services
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../core/auth.service';
 
 
 @Component({

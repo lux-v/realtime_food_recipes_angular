@@ -3,29 +3,21 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {  AngularFirestore} from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject, Observable, throwError, from } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-
+import { BehaviorSubject} from 'rxjs';
 
 
 //https://www.positronx.io/full-angular-firebase-authentication-system/
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 
 export class AuthService {
-  userData = null// Save logged in user data
+  userData = JSON.parse(localStorage.getItem('accessToken'))
+  isLoggedIn = !!JSON.parse(localStorage.getItem('accessToken'));
 
-  isLoggedIn = !!JSON.parse(localStorage.getItem('accessToken')!);
+  public isLoggedInSubject = new BehaviorSubject<boolean>(!!JSON.parse(localStorage.getItem('accessToken')));
+  public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  private loggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public isLoggedIn$: Observable<boolean> = this.loggedInSubject.asObservable();
-
-  private userDataSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  public userData$: Observable<any> = this.userDataSubject.asObservable();
-
-  private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  public user$: Observable<any> = this.userSubject.asObservable();
+  public userDataSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('accessToken')));
+  public userData$ = this.userDataSubject.asObservable();
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -33,27 +25,25 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
   ) {
-    /* Saving user data in localstorage when 
-    logged in and setting up null when logged out */
 
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
-          //for now I am saving every data about the user...
-          console.log("logged in")
+        console.log("logged in")
 
-          this.loggedInSubject.next(true);
-          this.userDataSubject.next(user);
+        this.isLoggedInSubject.next(true);
+        this.userDataSubject.next(user);
+        this.userData=user
+        this.isLoggedIn=true
+        localStorage.setItem("accessToken", JSON.stringify(user))
 
-          this.isLoggedIn = true;
-          this.userData=user
-          localStorage.setItem("accessToken", JSON.stringify(user))
       } else {
         console.log("logged out")
-          this.loggedInSubject.next(false);
-          this.userDataSubject.next(null);  
-          this.isLoggedIn = false;
-          this.userData=null
-          localStorage.removeItem('accessToken');
+
+        this.isLoggedInSubject.next(false);
+        this.userDataSubject.next(null);  
+        this.userData=null
+        this.isLoggedIn=false
+        localStorage.removeItem('accessToken');
       }
     })
   }
@@ -67,7 +57,13 @@ export class AuthService {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       const user = result.user;
-      
+
+      this.isLoggedInSubject.next(true);
+      this.userDataSubject.next(user);
+      this.userData=user
+      localStorage.setItem("accessToken", JSON.stringify(user))
+
+
       this.router.navigate(['dashboard']);
       alert("Welcome back, " + user?.displayName + "!")
 
@@ -142,27 +138,14 @@ export class AuthService {
   async logout() {
     return this.afAuth.signOut().then(() => {
       console.log("logout success")
+
       this.router.navigate(['login']);
+      this.isLoggedInSubject.next(false);
+      this.userDataSubject.next(null);
+      this.userData=null
+      localStorage.removeItem('accessToken');
+      
     });
   }
 
-
-  getUserDataById(userId: string): Observable<any> {
-    if(!userId) return throwError("User id is required");
-
-    return from(this.afs.collection("users").doc(userId).get()).pipe(
-      tap((res: any) => {
-        if (res.exists) {
-          const user = { id: res.id, ...res.data() };
-          this.userSubject.next(user);
-        } else {
-          throw new Error("User not found");
-        }
-      }),
-      catchError((error) => {
-        console.log("userId", userId);
-        return throwError(error);
-      })
-    );
-  }
 }

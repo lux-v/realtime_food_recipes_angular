@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { CheckImageService } from '../../services/check-image.service';
-import { RecipeLikeService } from '../../services/recipe-like.service';
+import { AuthService } from '../../core/auth.service';
+import { CheckImageService } from '../../shared/services/check-image.service';
+import { RecipeLikeService } from '../recipe-like.service';
 
 @Component({
   selector: 'app-recipe-card',

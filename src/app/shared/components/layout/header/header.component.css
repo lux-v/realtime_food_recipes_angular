@@ -29,6 +29,7 @@
 
 .LogoWrapper{
     height: 40px;
+    cursor: pointer;
 }
 
 .LogoImg{

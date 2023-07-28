@@ -60,7 +60,7 @@
     </a>
 
     <a
-        routerLink="/recipes"
+        [routerLink]="'/recipes'"
         class="HeaderNavLink"
         [ngClass]="{
             'active': activeLink === 'recipes'
@@ -123,28 +123,27 @@
         
     >
         <ng-container *ngIf="isSidebarOpen; else howItWorksIcon">
-        <div class="IconTextWrapper">
-
-            <img class="IconStyle" 
-                src="../../../assets/img/how-it-works-icon.svg" 
-                alt="how-it-works-icon"
-            >
-            <!-- <svg
-            class="IconStyle"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            >
-            <path
-                src="../../assets/img/icons/dashboard.svg"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 12h1M3 6h18M3 18h13"
-            />
-            </svg> -->
-            <p class="IconText">How It Works</p>
-        </div>
+            <div class="IconTextWrapper">
+                <img class="IconStyle" 
+                    src="../../../assets/img/how-it-works-icon.svg" 
+                    alt="how-it-works-icon"
+                >
+                <!-- <svg
+                class="IconStyle"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                >
+                <path
+                    src="../../assets/img/icons/dashboard.svg"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 12h1M3 6h18M3 18h13"
+                />
+                </svg> -->
+                <p class="IconText">How It Works</p>
+            </div>
         </ng-container>
         
         <ng-template #howItWorksIcon>
