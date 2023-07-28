@@ -20,8 +20,11 @@ export class RecipesService {
 
   ) { }
 
+  get recipe() {
+    return this.recipeSubject.value;
+  }
 
-  async getUserDataRecipeOwner(userId: string) {
+  async getRecipeOwnerUserData(userId: string) {
     return await this.afs.collection("users").doc(userId).get().toPromise().then((res) => {
       if (res.exists) {
         return res.data();
@@ -34,7 +37,6 @@ export class RecipesService {
       throw error;
     });
   }
-
 
 
   getAllRecipesData = async () => {
@@ -54,6 +56,7 @@ export class RecipesService {
       throw error;
     });
   };
+
 
 
 

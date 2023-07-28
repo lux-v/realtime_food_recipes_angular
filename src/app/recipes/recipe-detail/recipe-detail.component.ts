@@ -1,5 +1,4 @@
-import { Location, } from '@angular/common';
-import { Component, ElementRef, ViewChild,OnInit,OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { CheckImageService } from '../../shared/services/check-image.service';
@@ -15,7 +14,6 @@ export class RecipeDetailComponent implements OnInit {
   @ViewChild('componentRef', { static: false }) componentRef: ElementRef;
 
   recipeId: string;
-  userData = null;
   recipe: any;
   recipeOwnerDetails: any;
   commentSectionRef: ElementRef;
@@ -32,7 +30,6 @@ export class RecipeDetailComponent implements OnInit {
   constructor(
     private recipeService: RecipesService,
     private recipeLikeService:RecipeLikeService,
-    private _location: Location,
     private router: Router,
 
     private route: ActivatedRoute,
@@ -44,20 +41,18 @@ export class RecipeDetailComponent implements OnInit {
    }
 
    ngOnInit() {
-    this.authService.userData$.subscribe((userData) => {
-      if(!userData) return;
-
-      this.userData = userData;
-      this.fetchRecipe(userData);
-    });
+    this.fetchRecipe();
   }
 
+  async fetchRecipe() {
+    const recipeData = this.recipeService.recipe; 
 
+    // ---------------------------------------
+    // here I can show the way with resolver and without resolver 
 
-  fetchRecipe(userData) {
-    this.recipeService.recipe$.subscribe(async(recipeData) => {
-      if(recipeData){
-        const recipeOwnerDetails = await this.recipeService.getUserDataRecipeOwner(recipeData?.createdBy);
+    // this.recipeService.recipe$.subscribe(async(recipeData) => {
+    //   if(recipeData){
+        const recipeOwnerDetails = await this.recipeService.getRecipeOwnerUserData(recipeData?.createdBy);
 
         this.recipeOwnerDetails = recipeOwnerDetails;
         this.checkIsRecipeOwner()
@@ -65,9 +60,9 @@ export class RecipeDetailComponent implements OnInit {
 
         this.formatRecipeDate(recipeData);
                 
-        this.recipeLikeService.init(recipeData, userData);
-
+        this.recipeLikeService.init(recipeData, this.authService.userData);
         this.isLikedByUser = this.recipeLikeService.getIsLikedByUser();
+
         this.recipeLikes = this.recipeLikeService.getRecipeLikes();
 
         if(recipeData.id !== this.recipeId){
@@ -78,9 +73,8 @@ export class RecipeDetailComponent implements OnInit {
           this.imageSrc = await this.checkImage(recipeData.imgUrl,  '../../assets/img/recipe-image-placeholder.png');
         }
 
-      }
-    });
-    this.recipeService.getRecipeById(this.recipeId).subscribe();
+      // }
+    // });
   }
 
   handleEditClick() {
@@ -91,7 +85,7 @@ export class RecipeDetailComponent implements OnInit {
   async handleFavoriteClick(e) {
     e.stopPropagation();
 
-    await this.recipeLikeService.handleLikeRecipe(this.recipe, this.userData, this.isLikedByUser);
+    await this.recipeLikeService.handleLikeRecipe(this.recipe, this.authService.userData, this.isLikedByUser);
     this.isLikedByUser = this.recipeLikeService.getIsLikedByUser();
     this.recipeLikes = this.recipeLikeService.getRecipeLikes();
   }
@@ -114,7 +108,7 @@ export class RecipeDetailComponent implements OnInit {
 
   checkIsRecipeOwner() {
     this.isRecipeOwner =
-      this.userData?.uid === this.recipe?.createdBy || this.userData?.isAdmin;
+      this.authService.userData?.uid === this.recipe?.createdBy || this.authService.userData?.isAdmin;
   }
 
   checkIsMobileDevice() {

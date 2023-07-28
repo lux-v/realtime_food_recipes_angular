@@ -10,8 +10,6 @@ import { BehaviorSubject} from 'rxjs';
 @Injectable()
 
 export class AuthService {
-  userData = JSON.parse(localStorage.getItem('accessToken'))
-  isLoggedIn = !!JSON.parse(localStorage.getItem('accessToken'));
 
   public isLoggedInSubject = new BehaviorSubject<boolean>(!!JSON.parse(localStorage.getItem('accessToken')));
   public isLoggedIn$ = this.isLoggedInSubject.asObservable();
@@ -32,8 +30,6 @@ export class AuthService {
 
         this.isLoggedInSubject.next(true);
         this.userDataSubject.next(user);
-        this.userData=user
-        this.isLoggedIn=true
         localStorage.setItem("accessToken", JSON.stringify(user))
 
       } else {
@@ -41,15 +37,13 @@ export class AuthService {
 
         this.isLoggedInSubject.next(false);
         this.userDataSubject.next(null);  
-        this.userData=null
-        this.isLoggedIn=false
         localStorage.removeItem('accessToken');
       }
     })
   }
 
-  getUserData() {
-    return this.userData;
+  get userData(): any {
+    return this.userDataSubject.value;
   }
 
   // Log in with email/password
@@ -60,7 +54,6 @@ export class AuthService {
 
       this.isLoggedInSubject.next(true);
       this.userDataSubject.next(user);
-      this.userData=user
       localStorage.setItem("accessToken", JSON.stringify(user))
 
 
@@ -142,7 +135,6 @@ export class AuthService {
       this.router.navigate(['login']);
       this.isLoggedInSubject.next(false);
       this.userDataSubject.next(null);
-      this.userData=null
       localStorage.removeItem('accessToken');
       
     });

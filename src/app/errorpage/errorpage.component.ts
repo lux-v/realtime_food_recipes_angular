@@ -10,31 +10,23 @@ import { AuthService } from '../core/auth.service';
   styles: [`:host { display: flex; }`]
 })
 export class ErrorpageComponent {
-
   title = 'Error 404 - page not found';
-
-  // isLoggedIn:boolean = false;
+  isLoggedIn:boolean = false;
   
-  isLoggedIn = this.authService.isLoggedIn;
 
   constructor(
     private router : Router,
     private authService: AuthService
     ) { }
-  
+
+  ngOnInit(): void {
+    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
 
   navigate(path: string) {
     this.router.navigate([path]);
   }
-  // ngOnInit(): void {
-  //   this.authService.userData$.subscribe((userData) => {
-  //     if(userData){
-  //       this.isLoggedIn = true;
-  //     }
-  //     else{
-  //       this.isLoggedIn = false;
-  //     }
-  //   });
-  // }
-  
+
 }

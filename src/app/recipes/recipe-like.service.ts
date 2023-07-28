@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { arrayRemove, arrayUnion } from '@firebase/firestore';
+import { BehaviorSubject} from 'rxjs';
 
 @Injectable()
 export class RecipeLikeService {
+
   private isLikedByUser = false;
   private recipeLikes = 0;
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
-
   ) {}
 
   init(recipe: any, userData: any) {
@@ -24,8 +25,6 @@ export class RecipeLikeService {
   getRecipeLikes(): number {
     return this.recipeLikes;
   }
-
-  
 
 async addRemoveLikedBy(userId, recipeId, isLikedByUser) {
   const action = isLikedByUser
@@ -43,7 +42,7 @@ async addRemoveLikedBy(userId, recipeId, isLikedByUser) {
     console.log("Error updating recipe likedBy: ", error);
     throw error;
   });
-}
+  }
 
   async handleLikeRecipe(recipe: any, userData: any, isLikedByUser: boolean) {
 

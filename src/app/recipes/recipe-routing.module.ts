@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+//guard
+import { AuthorizedGuard } from '../core/authorized.guard';
+//components
 import { RecipesComponent } from './recipes.component';
-import { AuthorizedGuard } from '../login/authorized.guard';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { RecipesResolverService } from './recipe-detail/recipe-detail.resolver';
 
 
 const routes: Routes = [
@@ -15,6 +18,8 @@ const routes: Routes = [
     path: 'recipes/:id',
     component: RecipeDetailComponent,
     canActivate: [AuthorizedGuard],
+    resolve: [RecipesResolverService]
+
   },
   
 ];

@@ -20,13 +20,9 @@ export class ContentComponent {
     public sidebarService: SidebarService
   ) {}
 
-  // @HostBinding('attr.isLoggedIn') get isLoggedIn() { 
-  //   return this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
-  //     console.log("content component",isLoggedIn)
-  //     return isLoggedIn;
-  //   });
-  // }
-    @HostBinding('attr.isLoggedIn') get isLoggedIn() { return this.authService.isLoggedIn;}
+  @HostBinding('attr.isLoggedIn') get isLoggedIn() {
+    return this.authService.isLoggedInSubject.value;
+  }
 
   @HostBinding('attr.isSidebarOpen') get isSidebarOpen() { return this.sidebarService.isSidebarOpen;}
 

@@ -1,7 +1,6 @@
 
 :host{
     display: block;
-    width: fit-content;
 }
 
 .Button{
@@ -15,7 +14,7 @@
     position: relative;
     border: none;
     height:38px;
-    width: auto;
+    width: inherit;
     margin:auto;
     white-space: nowrap;
     user-select:none;

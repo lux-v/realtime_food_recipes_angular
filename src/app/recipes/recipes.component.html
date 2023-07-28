@@ -1,7 +1,8 @@
 <app-layout title="Recipes">
   <app-card *ngIf="searchRecipe; else loading">
-    <app-button headingElement [isTertiary]="true">Filter</app-button>
-
+    <div style="width:min-content;" headingElement>
+      <app-button  [isTertiary]="true">Filter</app-button>
+    </div>
     <!-- This angular documentation shows to use "keyup" -->
     <!-- https://angular.io/guide/user-input -->
     <input
@@ -13,7 +14,7 @@
         (keyup)="handleSearchInput($event)"
         />
     
-        <div style="margin-bottom: 25px;">
+        <div style="margin-bottom: 25px; width:min-content;">
           <app-button>Add Recipe +</app-button>
         </div>
         <div class="RecipeWrapper">

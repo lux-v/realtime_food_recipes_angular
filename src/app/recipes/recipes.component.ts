@@ -10,14 +10,11 @@ import { RecipesService } from './recipes.service';
   styleUrls: ['./recipes.component.css', '../shared/shared.styles.css']
 })
 export class RecipesComponent implements OnInit {
-  
   recipes = null;
   filteredRecipes = null;
   searchRecipe = null;
-  userData = this.authService.userData;
     
   constructor(
-    private authService: AuthService,
     private recipeService: RecipesService,
     private router : Router,
    ) {  }
@@ -33,10 +30,9 @@ export class RecipesComponent implements OnInit {
     }
   };
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit(){
     await this.fetchRecipes();
   }
-
 
 
    handleSearchInput = (e) => {

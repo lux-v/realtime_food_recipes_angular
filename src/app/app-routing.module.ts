@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule,  Routes } from '@angular/router';
 //guard
-import { AuthorizedGuard } from './login/authorized.guard';
+import { NotAuthorizedGuard } from './core/not-authorized.guard';
+import { AuthorizedGuard } from './core/authorized.guard';
 //components
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { ErrorpageComponent,} from './errorpage/errorpage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingComponent } from './landing/landing.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
-import { NotAuthorizedGuard } from './login/not-authorized.guard';
-import { RecipesComponent } from './recipes/recipes.component';
+
 
 const routes: Routes = [
   {
@@ -46,7 +44,6 @@ const routes: Routes = [
   },
   {
     path: 'signup',
-    component: SignupComponent,
     loadChildren: () =>
       import('./signup/signup.module').then((mod) => mod.SignupModule),
     canActivate:[NotAuthorizedGuard]
