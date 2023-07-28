@@ -2,7 +2,11 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {  AngularFirestore} from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import {  BehaviorSubject, Subject } from 'rxjs';
+
+import { BehaviorSubject, Observable, throwError, from } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+
+
 
 //https://www.positronx.io/full-angular-firebase-authentication-system/
 @Injectable({
@@ -10,10 +14,18 @@ import {  BehaviorSubject, Subject } from 'rxjs';
 })
 
 export class AuthService {
-  
   userData = null// Save logged in user data
 
   isLoggedIn = !!JSON.parse(localStorage.getItem('accessToken')!);
+
+  private loggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLoggedIn$: Observable<boolean> = this.loggedInSubject.asObservable();
+
+  private userDataSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  public userData$: Observable<any> = this.userDataSubject.asObservable();
+
+  private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  public user$: Observable<any> = this.userSubject.asObservable();
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -27,15 +39,20 @@ export class AuthService {
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
           //for now I am saving every data about the user...
-    
           console.log("logged in")
+
+          this.loggedInSubject.next(true);
+          this.userDataSubject.next(user);
+
           this.isLoggedIn = true;
-          this.userData=(user);
+          this.userData=user
           localStorage.setItem("accessToken", JSON.stringify(user))
       } else {
         console.log("logged out")
+          this.loggedInSubject.next(false);
+          this.userDataSubject.next(null);  
           this.isLoggedIn = false;
-          this.userData=(null);
+          this.userData=null
           localStorage.removeItem('accessToken');
       }
     })
@@ -50,7 +67,7 @@ export class AuthService {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       const user = result.user;
-
+      
       this.router.navigate(['dashboard']);
       alert("Welcome back, " + user?.displayName + "!")
 
@@ -102,7 +119,7 @@ export class AuthService {
   
 
   // Send email verfificaiton when new user sign up
-  SendVerificationMail() {
+  async SendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
@@ -110,7 +127,7 @@ export class AuthService {
       });
   }
   // Reset Forggot password
-  ForgotPassword(passwordResetEmail: string) {
+  async ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
@@ -127,5 +144,25 @@ export class AuthService {
       console.log("logout success")
       this.router.navigate(['login']);
     });
+  }
+
+
+  getUserDataById(userId: string): Observable<any> {
+    if(!userId) return throwError("User id is required");
+
+    return from(this.afs.collection("users").doc(userId).get()).pipe(
+      tap((res: any) => {
+        if (res.exists) {
+          const user = { id: res.id, ...res.data() };
+          this.userSubject.next(user);
+        } else {
+          throw new Error("User not found");
+        }
+      }),
+      catchError((error) => {
+        console.log("userId", userId);
+        return throwError(error);
+      })
+    );
   }
 }

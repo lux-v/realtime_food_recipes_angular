@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 
 @Component({
   selector: 'app-chip',
-  templateUrl: './chip.component.html',
+  templateUrl: './chip.component.html',  
 })
 export class ChipComponent {
   @Input() size: string = 'small';

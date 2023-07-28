@@ -1,0 +1,278 @@
+.ProfileImg{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #7F8590;
+    overflow: hidden;
+    background: #ffffff;
+    object-fit: cover;
+}
+
+.RecipeLikeWrapper{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.LikesNumber{
+    color: #2C3131;
+    font-family: 'Roboto', sans-serif;
+    line-height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.RecipeWrapper{
+    height: 100%;
+    width: 100%;
+}
+
+.TopSideWrapper{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.BottomSideWrapper{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    background: #F2F2F2;
+    border-radius: 48px;
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.LeftSideWrapper{
+    width: 100%;
+    padding: 20px;
+}
+
+.RightSideWrapper{
+    width: 100%;
+}
+
+
+.SummaryAndImageWrapper{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+.ButtonsAndDescriptionWrapper{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+
+.IngredientsAndStepsWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.LoadingSpinnerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.RecipeImgWrapper{
+    max-height: 600px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.RecipeImg{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.SectionWrapper{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.RecipeNameDetailsWrapper{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.RecipeNameDetails{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    width: fit-content;
+    padding: 0.5125rem;
+    width: 100%;
+}
+
+.RecipeSpan{
+    position: relative;
+    display: inline-block;
+    margin-right: 14px;
+}
+
+.RecipeSpan:before{
+    content: " ";
+    position: absolute;
+    background: #7b8b9a;
+    margin: -0.5125rem;
+    inset: 0px;
+    z-index: -1;
+}
+
+.RecipeDetailsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.RecipeDetailItem{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.RecipeDescriptionWrapper{
+    width: 100%;
+    height: 100%;
+    background: #4d5867;
+    display: flex;
+    align-items: center;
+    padding: 24px;
+}
+
+
+.LikeCommentButtonWrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    height: 100%;
+    flex-wrap: wrap;
+    background: white
+}
+
+.SectionHeadline{
+    color: #121926;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 10px 10px 10px;
+}
+
+.SectionHeadline.secondary{
+    color: #5c6978;
+}
+
+
+.IngredientsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.TextContent{
+    color: #121926;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 320px ){
+    .RecipeDetailsWrapper{
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px){
+    .LeftSideWrapper{
+        width: 320px;
+    }
+    .RightSideWrapper{
+        width: calc(100% - 320px);
+    }
+    .SummaryAndImageWrapper{
+        flex-direction: row;
+    }
+    .ButtonsAndDescriptionWrapper{
+        flex-direction: row;
+    }
+    .IngredientsAndStepsWrapper{
+        flex-direction: row;
+    }
+    .RecipeNameDetailsWrapper{
+        width: 180%;
+    }
+    .RecipeNameDetails{
+        font-size: 56px;
+    }
+}
+
+@media (min-width: 1024px){
+    .LeftSideWrapper{
+        width: 450px;
+    }
+    .RightSideWrapper{
+        width: calc(100% - 450px);
+    }
+}
+
+@media print{
+    .TopSideWrapper{
+        page-break-inside: avoid;
+    }
+    .BottomSideWrapper{
+        page-break-inside: avoid;
+    }
+}
+
+
+.AddFavorite{
+    width: 20px;
+    height: 20px;
+    fill: white;
+    cursor: pointer;
+}
+
+.AddFavorite:hover{
+    fill: #ef5350;
+    background-color: #ef5350;
+
+}
+
+.AddFavorite:active{
+    transform: scale(1.2);
+}
+
+.AddFavorite.isFavorite{
+    fill: #ef5350;
+    background-color: #ef5350;
+}

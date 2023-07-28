@@ -12,6 +12,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { NotAuthorizedGuard } from './login/not-authorized.guard';
 import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,19 @@ const routes: Routes = [
     path: 'recipes',
     component: RecipesComponent,
     canActivate: [AuthorizedGuard],
+    // children:[
+    //   {
+    //     path:":id",
+    //     component:RecipeComponent,
+    //     canActivate:[AuthorizedGuard]        
+    //   }
+    // ]
+  },
+  {
+    path: 'recipes/:id',
+    component: RecipeComponent,
+    canActivate: [AuthorizedGuard],
+
   },
   {
     path: 'login',

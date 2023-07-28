@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Location} from '@angular/common';
-import { ActivatedRoute, NavigationEnd, Router, } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import {Router, } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',

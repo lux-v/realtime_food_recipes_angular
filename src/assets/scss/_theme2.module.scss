@@ -1,0 +1,181 @@
+// this theme is combination of red and blue
+
+
+//primary
+$primaryLight: #ffeff0;
+$primaryMain: #EB2828;
+$primaryDark: #B71C1C;
+$primary200: #ffb5bc;
+$primary300: #E57373;
+$primary400: #EF5350;
+$primary500: #F44336;
+$primary600: #E53935;
+$primary700: #D32F2F;
+$primary800: #C62828;
+$primary900: #B71C1C;
+
+
+//secondary
+$secondaryLight: #E3F2FD;
+$secondaryMain: #2196F3;
+$secondaryDark: #0D47A1;
+$secondary200: #BBDEFB;
+$secondary300: #64B5F6;
+$secondary400: #42A5F5;
+$secondary500: #2196F3;
+$secondary600: #1E88E5;
+$secondary700: #1976D2;
+$secondary800: #1565C0;
+$secondary900: #0D47A1;
+
+
+//background red
+$bgPrimaryLight50: #ffe6e8; // red
+$bgPrimaryLight100: #ffeff0; // red
+$bgPrimaryLight200: #fcd6da; // red
+$bgPrimaryLight300: #ef9a9a; // red
+$bgPrimaryLight400: #e57373; // red
+$bgPrimaryLight500: #ef5350; // red
+$bgPrimaryLight600: #f44336; // red
+$bgPrimaryLight700: #e53935; // red
+$bgPrimaryLight800: #d32f2f; // red
+$bgPrimaryLight900: #c62828; // red
+$bgPrimaryTransparent: #bf393933;
+
+//background secondary
+$bgSecondaryLight100: #eef2f6; // gray
+$bgSecondaryLight200: #e0e7ed; // gray
+$bgSecondaryLight300: #c5d0de; // gray
+$bgSecondaryLight400: #9ba7b3; // gray
+$bgSecondaryLight500: #7b8b9a; // gray
+$bgSecondaryLight600: #6c7a8a; // gray
+$bgSecondaryLight700: #5c6978; // gray
+$bgSecondaryLight800: #4d5867; // gray
+$bgSecondaryLight900: #3d4755; // gray
+
+
+//success
+$successLight: #E8F5E9;
+$successMain: #4CAF50;
+$successDark: #1B5E20;
+$success200: #C8E6C9;
+
+
+//info
+$infoLight: #E1F5FE;
+$infoMain: #2196F3;
+$infoDark: #0D47A1;
+$info200: #BBDEFB;
+
+//warning
+$warningLight: #FFFDE7;
+$warningMain: #FFC107;
+$warningDark: #FFA000;
+$warning200: #FFE082;
+
+//error
+$errorLight: #FFEBEE;
+$errorMain: #F44336;
+$errorDark: #B71C1C;
+$error200: #FFCDD2;
+
+
+//grey
+$grey50: #FAFAFA;
+$grey100: #F5F5F5;
+$grey200: #EEEEEE;
+$grey300: #E0E0E0;
+$grey400: #BDBDBD;
+$grey500: #9E9E9E;
+$grey600: #757575;
+$grey700: #616161;
+$grey800: #424242;
+$grey900: #212121;
+
+
+
+
+
+:export {
+    primaryLight: $primaryLight;
+    primaryMain: $primaryMain;
+    primaryDark: $primaryDark;
+    primary200: $primary200;
+    primary300: $primary300;
+    primary400: $primary400;
+    primary500: $primary500;
+    primary600: $primary600;
+    primary700: $primary700;
+    primary800: $primary800;
+    primary900: $primary900;
+
+    secondaryLight: $secondaryLight;
+    secondaryMain: $secondaryMain;
+    secondaryDark: $secondaryDark;
+    secondary200: $secondary200;
+    secondary300: $secondary300;
+    secondary400: $secondary400;
+    secondary500: $secondary500;
+    secondary600: $secondary600;
+    secondary700: $secondary700;
+    secondary800: $secondary800;
+    secondary900: $secondary900;
+
+    successLight: $successLight;
+    successMain: $successMain;
+    successDark: $successDark;
+    success200: $success200;
+
+    infoLight: $infoLight;
+    infoMain: $infoMain;
+    infoDark: $infoDark;
+    info200: $info200;
+
+    warningLight: $warningLight;
+    warningMain: $warningMain;
+    warningDark: $warningDark;
+    warning200: $warning200;
+
+    errorLight: $errorLight;
+    errorMain: $errorMain;
+    errorDark: $errorDark;
+    error200: $error200;
+    
+
+    grey50: $grey50;
+    grey100: $grey100;
+    grey200: $grey200;
+    grey300: $grey300;
+    grey400: $grey400;
+    grey500: $grey500;
+    grey600: $grey600;
+    grey700: $grey700;
+    grey800: $grey800;
+    grey900: $grey900;
+
+
+
+    //background
+    bgPrimaryLight50: $bgPrimaryLight50;
+    bgPrimaryLight100: $bgPrimaryLight100;
+    bgPrimaryLight200: $bgPrimaryLight200;
+    bgPrimaryLight300: $bgPrimaryLight300;
+    bgPrimaryLight400: $bgPrimaryLight400;
+    bgPrimaryLight500: $bgPrimaryLight500;
+    bgPrimaryLight600: $bgPrimaryLight600;
+    bgPrimaryLight700: $bgPrimaryLight700;
+    bgPrimaryLight800: $bgPrimaryLight800;
+    bgPrimaryLight900: $bgPrimaryLight900;
+
+    bgSecondaryLight100: $bgSecondaryLight100;
+    bgSecondaryLight200: $bgSecondaryLight200;
+    bgSecondaryLight300: $bgSecondaryLight300;
+    bgSecondaryLight400: $bgSecondaryLight400;
+    bgSecondaryLight500: $bgSecondaryLight500;
+    bgSecondaryLight600: $bgSecondaryLight600;
+    bgSecondaryLight700: $bgSecondaryLight700;
+    bgSecondaryLight800: $bgSecondaryLight800;
+    bgSecondaryLight900: $bgSecondaryLight900;
+    
+
+}

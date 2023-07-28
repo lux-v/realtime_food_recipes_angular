@@ -36,8 +36,8 @@ export class CheckImageService {
 
   constructor() {}
 
-  checkImage(url: string, placeholderUrl: string): Promise<string> {
-    return new Promise((resolve) => {
+  async checkImage(url: string, placeholderUrl: string): Promise<string> {
+    return await new Promise((resolve) => {
       const cachedImage = this.imageCache[url];
       if (cachedImage) {
         resolve(cachedImage);

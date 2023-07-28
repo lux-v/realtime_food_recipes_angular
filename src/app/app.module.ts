@@ -30,6 +30,7 @@ import { CommingsoonComponent } from './commingsoon/commingsoon.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 
@@ -47,6 +48,7 @@ import { RecipesComponent } from './recipes/recipes.component';
     AboutUsComponent,
     HowItWorksComponent,
     RecipesComponent,
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,

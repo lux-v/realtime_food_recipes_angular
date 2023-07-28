@@ -1,0 +1,130 @@
+<app-layout title="Recipe">
+    <div #componentRef *ngIf="recipe; else loading">
+        <div class="TopSideWrapper">
+            <div class="SummaryAndImageWrapper">
+                <div class="LeftSideWrapper">
+                    <div style="display:flex;gap:5px;padding-bottom:20px;align-items:center;">
+                        <div>
+                            <img class="ProfileImg" [src]="profileImgSrc" alt="profileImg" style="width:50px;height:50px;" />
+                            <p class="TextContent">
+                                By <span style="font-weight:600;">
+                                    {{recipeOwnerDetails?.displayName || "-"}}
+                                </span>
+                            </p>
+                            <p style="font-size:0.9rem;">
+                                {{recipe?.updatedAt ? 'Last updated at:' : 'Created at:'}}
+                                {{recipeDate}}
+                            </p>
+                        </div>
+
+                        <div style="margin-left:auto;">
+                            <app-button
+                                *ngIf="isRecipeOwner"                                
+                                [isSecondary]="true"
+                                heightProp="30px"
+                                (click)="handleEditClick()"
+                            >
+                                Edit this recipe
+                            </app-button>
+                        </div>
+                    </div>
+                    <div class="RecipeNameDetailsWrapper">
+                        <!-- primjer da se ne moze JS koristit unutar HTMLa -->
+                        <p class="RecipeNameDetails">
+                            <span class="RecipeSpan" *ngFor="let word of recipeNameList">
+                                {{word}}
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="RecipeDetailsWrapper">
+                        <div class="RecipeDetailItem" *ngIf="recipe?.servings">
+                            <img class="ServingsIcon" src="../../assets/img/food-icon.svg" alt="servings" />
+                            <p>
+                                {{recipe?.servings}}
+                                {{recipe.servings >= "1" ? "persons" : "person"}}
+                            </p>
+                        </div>
+                        <div class="RecipeDetailItem" *ngIf="recipe?.cookTimeMin">
+                            <img class="CookTimeIcon" src="../../assets/img/clock-icon.svg" alt="cook-time" />
+                            <p>
+                                {{recipe?.cookTimeMin}}
+                                {{recipe.cookTimeMin >= "1" ? "minutes" : "minute"}}
+                            </p>
+                        </div>
+                        <div class="RecipeDetailItem" style="display:flex;align-items:center;">
+                            <p class="LikesNumber">
+                                {{recipeLikes}}
+                            </p>
+                            <div class="FavoriteIconWrapper">
+                                <img
+                                    class="AddFavorite"
+                                    [ngClass]="isLikedByUser ? 'isFavorite' : ''"
+                                    src="../../../../assets/img/add-favorite.svg"
+                                    (click)="handleFavoriteClick($event)"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="RecipeDetailsWrapper">
+                        <div class="RecipeDetailItem" *ngIf="recipe?.category">
+                            <app-chip size="medium">{{recipe?.category}}</app-chip>
+                        </div>
+                        <div class="RecipeDetailItem" *ngIf="recipe?.cuisine">
+                            <app-chip size="medium">{{recipe?.cuisine}}</app-chip>
+                        </div>
+                    </div>
+                    <div class="SectionWrapper">
+                        <p class="SectionHeadline">Share recipe</p>
+                    </div>
+                    
+                </div>
+                <div class="RightSideWrapper">
+                    <div class="RecipeImgWrapper">
+                        <img class="RecipeImg" [src]="imageSrc" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="ButtonsAndDescriptionWrapper">
+                <div class="LeftSideWrapper" style="background:white;">
+                    <div class="LikeCommentButtonWrapper">
+                        <app-button
+                            (click)="handleFavoriteClick($event)"
+                            
+                        >
+                            <img
+                                class="AddFavorite"
+                                src="../../../../assets/img/add-favorite.svg"
+                                [ngClass]="isLikedByUser ? 'isFavorite' : ''"
+                            />
+                            {{isLikedByUser ? "Unsave" : "Save"}}
+                        </app-button>
+                        <app-button
+                            [isTertiary]="true"
+                            (click)="scrollToRef(commentSectionRef)"
+                            
+                        >
+                            <img class="CommentIcon" src="../../assets/icons/comment-icon.svg" alt="comment" />
+                            Comment this recipe
+                        </app-button>
+                    </div>
+                </div>
+                <div class="RightSideWrapper" style="color:white;">
+                    <div class="RecipeDescriptionWrapper">
+                        <p>
+                            {{recipe?.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</app-layout>
+
+<ng-template #loading>
+    <app-loading-spinner size="120px">
+    </app-loading-spinner>
+</ng-template>

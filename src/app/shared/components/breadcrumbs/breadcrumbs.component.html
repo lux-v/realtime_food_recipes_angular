@@ -5,7 +5,7 @@
     <img class="ChevronRight" src="../../../../assets/img/chevron-right.svg" *ngIf="pathNames.length > 0"/>
 
 
-    <div style="display:flex;" *ngFor="let path of pathNames; let i = index">
+    <div style="display:flex; align-items: center;" *ngFor="let path of pathNames; let i = index">
         <a 
             class="BreadcrumbsLink" 
             [ngClass]="i+1<pathNames.length ? 'notLast':''" 

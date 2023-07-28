@@ -1,0 +1,110 @@
+// -------------------------------------------
+
+
+    $primaryBackgroundLight: #F2F2F2;
+
+// base
+    //red 
+    // primary: '#EB2828', //red-orange
+    $secondary: #FFFFFF; // white
+
+
+    //gray
+    $primary: #7F8590; // gray body
+    //background
+    // I will need to define the theme presets for the background colors
+
+
+    // bgPrimary: rgba(191, 57, 57, 0.08),
+    $bgSecondary: #FFFFFF; //white
+    //text
+    
+    $textPrimary: #121926; //darkgray
+    // textPrimary: #081131; //gray1
+    $textSecondary: #455439; //green
+    $textTertiary: rgba(0, 0, 0, 0.5); // gray 4
+    $textToast: #0D150D;
+    //icons
+    $iconsPrimary: #7F8590; // gray body
+
+    //status colors
+    $primarySuccess: #e1fae5;
+    $secondarySuccess: #36e05a;
+    $primaryError: #FFB7B7;
+    $secondaryError: #db6e6e;
+    $primaryWarning: #FAE7C7;
+    $secondaryWarning: #e3bb78;
+    $primaryInfo: #B2E7F5;
+    $secondaryInfo: #60bad1;
+
+
+    $link: #0085FF; //link
+    $purple: #4747BF; //purple
+    $lightRed: #bf393914; //light red
+    $darkRed: #AA1D1D; //dark red
+    $logoText: #626267; // logo text
+
+
+    $white05: rgba(255, 255, 255, 0.5); //white opacity 0.5
+    $white: white;
+    $columnHover: #1ABBB9; // table column hover
+    $columnBackground: #F9F9F9; // table column background
+    $tableBorder: #E0E7ED; // table border
+    $whiteBorder: #D2D2D2; //white border
+    $modalBorder: #DEDEDE;
+    $modalBackground: rgba(46, 46, 46, 0.6);
+    $cancelBackground: rgba(191, 57, 57, 0.08);
+    $textMenu: #2C3131; //black
+    $boxShadow:
+        0px 1px 6px rgba(89, 89, 89, 0.04), 0px 2px 16px rgba(119, 119, 119, 0.1);
+
+    //-----------------------
+
+
+:export{
+    primaryBackgroundLight: $primaryBackgroundLight;
+    
+    // base
+    //red
+    primary: $primary;
+    secondary: $secondary;
+
+    bgSecondary: $bgSecondary;
+
+    //text
+    textPrimary: $textPrimary;
+    textSecondary: $textSecondary;
+    textTertiary: $textTertiary;
+    textToast: $textToast;
+    //icons
+    iconsPrimary: $iconsPrimary;
+
+    //status colors
+    primarySuccess: $primarySuccess;
+    secondarySuccess: $secondarySuccess;
+    primaryError: $primaryError;
+    secondaryError: $secondaryError;
+    primaryWarning: $primaryWarning;
+    secondaryWarning: $secondaryWarning;
+    primaryInfo: $primaryInfo;
+    secondaryInfo: $secondaryInfo;
+
+    link: $link;
+    purple: $purple;
+    lightRed: $lightRed;
+
+    darkRed: $darkRed;
+    logoText: $logoText;
+
+    white05: $white05;
+    white: $white;
+    columnHover: $columnHover;
+    columnBackground: $columnBackground;
+    tableBorder: $tableBorder;
+    whiteBorder: $whiteBorder;
+    modalBorder: $modalBorder;
+    modalBackground: $modalBackground;
+    cancelBackground: $cancelBackground;
+    textMenu: $textMenu;
+    boxShadow: $boxShadow;
+}
