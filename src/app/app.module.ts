@@ -6,7 +6,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { environment } from 'src/environments/environment';
 //routing
 import { AppRoutingModule } from './app-routing.module';
-//shared module
+// modules
 import { SharedModule } from './shared/shared.module';
 //firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -14,6 +14,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+//svg
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { HttpClientModule } from '@angular/common/http';
 //components
 import { AppComponent } from './app.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
@@ -25,6 +28,7 @@ import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { CoreModule } from './core/core.module';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -32,6 +36,8 @@ import { CoreModule } from './core/core.module';
     RecipesModule,
     BrowserModule,
     CoreModule,
+    AngularSvgIconModule.forRoot(),
+    HttpClientModule,
     
     
     AppRoutingModule,

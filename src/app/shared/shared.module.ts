@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
-
+//svg
+import { AngularSvgIconModule } from 'angular-svg-icon';
 //components
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
@@ -26,7 +27,8 @@ import { ContentComponent } from './components/layout/content/content.component'
     // routerLink did not work without RouterModule
     // but it didn't throw any error
     // it threw an error only when I wrapped the routerLink in a square bracket [] 
-    RouterModule
+    RouterModule,
+    AngularSvgIconModule
   ],
   declarations: [
     LayoutComponent,

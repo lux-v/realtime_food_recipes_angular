@@ -6,12 +6,12 @@
         <div class="NameFavoritesWrapper">
             <p class="RecipeName">{{ recipe.name }}</p>
             <div class="FavoriteIconWrapper">
-                <img
-                    class="AddFavorite"
-                    [ngClass]="isLikedByUser ? 'isFavorite' : ''"
+                <svg-icon 
+                    [class]="isLikedByUser ? 'AddFavorite isFavorite': 'AddFavorite'" 
+                    [applyClass]="true"
                     src="../../../../assets/img/add-favorite.svg"
-                    (click)="handleFavoriteClick($event)"
-                />
+                    (click)="handleFavoriteClick($event)">
+                </svg-icon>
             </div>
         </div>
         <p class="RecipeDescription">{{ recipe.description }}</p>

@@ -1,6 +1,11 @@
 <div class="BreadcrumbsWrapper" [ngClass]="pathNames.length===0 ? 'empty':'' ">
     <a class="BreadcrumbsLink" (click)="navigateTo('/dashboard')" *ngIf="pathNames.length > 0">
-        <img class="DashboardIcon" src="../../../../assets/img/dashboard-icon.svg" />
+        <svg-icon 
+            class="DashboardIcon"
+            [applyClass]="true"
+            src="../../../../assets/img/dashboard-icon.svg"
+            >
+        </svg-icon>
     </a>
     <img class="ChevronRight" src="../../../../assets/img/chevron-right.svg" *ngIf="pathNames.length > 0"/>
 

@@ -264,8 +264,6 @@
 
 .AddFavorite:hover{
     fill: #ef5350;
-    background-color: #ef5350;
-
 }
 
 .AddFavorite:active{
@@ -274,5 +272,4 @@
 
 .AddFavorite.isFavorite{
     fill: #ef5350;
-    background-color: #ef5350;
 }

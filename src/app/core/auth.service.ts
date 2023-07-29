@@ -26,15 +26,11 @@ export class AuthService {
 
     this.afAuth.onAuthStateChanged((user) => {
       if (user) {
-        console.log("logged in")
-
         this.isLoggedInSubject.next(true);
         this.userDataSubject.next(user);
         localStorage.setItem("accessToken", JSON.stringify(user))
 
       } else {
-        console.log("logged out")
-
         this.isLoggedInSubject.next(false);
         this.userDataSubject.next(null);  
         localStorage.removeItem('accessToken');

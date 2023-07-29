@@ -57,12 +57,12 @@
                                 {{recipeLikes}}
                             </p>
                             <div class="FavoriteIconWrapper">
-                                <img
-                                    class="AddFavorite"
-                                    [ngClass]="isLikedByUser ? 'isFavorite' : ''"
+                                <svg-icon 
+                                    [class]="isLikedByUser ? 'AddFavorite isFavorite': 'AddFavorite'" 
+                                    [applyClass]="true"
                                     src="../../../../assets/img/add-favorite.svg"
-                                    (click)="handleFavoriteClick($event)"
-                                />
+                                    (click)="handleFavoriteClick($event)">
+                                </svg-icon>
                             </div>
                         </div>
                     </div>
@@ -94,11 +94,11 @@
                             (click)="handleFavoriteClick($event)"
                                
                         >
-                            <img
-                                class="AddFavorite"
-                                src="../../../../assets/img/add-favorite.svg"
-                                [ngClass]="isLikedByUser ? 'isFavorite' : ''"
-                            />
+                            <svg-icon 
+                                [class]="isLikedByUser ? 'AddFavorite isFavorite': 'AddFavorite'" 
+                                [applyClass]="true"
+                                src="../../../../assets/img/add-favorite.svg">
+                            </svg-icon>
                             {{isLikedByUser ? "Unsave" : "Save"}}
                         </app-button>
                         <app-button
@@ -106,7 +106,12 @@
                             (click)="scrollToRef(commentSectionRef)"
                             
                         >
-                            <img class="CommentIcon" src="../../assets/icons/comment-icon.svg" alt="comment" />
+                            <svg-icon 
+                                [class]="'CommentIcon'" 
+                                [applyClass]="true"
+                                alt="comment"
+                                src="../../assets/icons/comment-icon.svg">
+                            </svg-icon>
                             Comment this recipe
                         </app-button>
                     </div>

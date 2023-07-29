@@ -11,6 +11,7 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipesComponent } from './recipes.component';
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { RouterModule } from '@angular/router';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     RouterModule,
     RecipeRoutingModule,
+    AngularSvgIconModule
   ],
   declarations: [
     RecipesComponent,

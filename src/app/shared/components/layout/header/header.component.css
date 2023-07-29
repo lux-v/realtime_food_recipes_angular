@@ -59,14 +59,19 @@
 
 .Arrow{
     width: 24px;
+    height: 24px;
     stroke:#7b8b9a;
+}
+
+.Arrow.hover{
+    stroke:#fff;
 }
 
 
 .HeaderProfileWrapper{
     position: relative;
     height: 100%;
-    width:145px;
+    /* width:145px; */
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -95,6 +100,8 @@
 @media (min-width: 768px) {
     .HeaderProfile{
         display: flex;
+        width:100px !important;
+
         justify-content:space-between;
         align-items:center;
         gap: 8px;
@@ -109,10 +116,13 @@
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    padding:5px;
     transition: all 0.1s ease-in;
     cursor: pointer;
-    display:block;
+    display: block;
+}
+
+.HamburgerIcon svg{
+ padding: 5px;
 }
 
 .HamburgerIcon.left{
