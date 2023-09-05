@@ -1,5 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: auto;
+    max-width: 650px;
+    max-height: 500px;
+    padding: 10px;
+    color: #121926;
+    background: #F2F2F2;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    border: 1px solid #E0E7ED;
+    border-radius: 8px;
+}
 
-.RecipeCardWrapper {
+:host(:hover) {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    box-shadow: #cadcec 0px 6px 15px;
+}
+
+
+
+/* .RecipeCardWrapper {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -19,16 +42,16 @@
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     box-shadow: #cadcec 0px 6px 15px;
-}
+} */
 
-.RecipeImage{
+.RecipeImage {
     width: 100%;
     height: 188px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.TextWrapper{
+.TextWrapper {
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -37,14 +60,14 @@
     overflow-wrap: anywhere;
 }
 
-.NameFavoritesWrapper{
+.NameFavoritesWrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 5px;
 }
 
-.FavoriteIconWrapper{
+.FavoriteIconWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +80,7 @@
     cursor: pointer;
 }
 
-.RecipeName{
+.RecipeName {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -67,7 +90,7 @@
     line-height: 29px;
 }
 
-.RecipeDescription{
+.RecipeDescription {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -78,14 +101,14 @@
     height: 60px;
 }
 
-.CloseIcon{
+.CloseIcon {
     width: 10px;
     height: 10px;
     cursor: pointer;
     fill: white;
 }
 
-.RecipeIngredientsWrapper{
+.RecipeIngredientsWrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
@@ -93,19 +116,19 @@
     overflow: hidden;
 }
 
-.ButtomTextWrapper{
+.ButtomTextWrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.BottomTextWrapper{
+.BottomTextWrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.RecipeCategory{
+.RecipeCategory {
     font-size: 14px;
     font-weight: 600;
     line-height: 14px;
@@ -113,80 +136,87 @@
     color: #455439;
 }
 
-.CookTimeWrapper{
+.CookTimeWrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.CookTimeIcon{
+.CookTimeIcon {
     width: 20px;
     height: 20px;
 }
 
-.CookTimeLabel{
+.CookTimeLabel {
     font-size: 12px;
     font-weight: 500;
 }
 
-.AddFavorite{
+.AddFavorite {
     width: 20px;
     height: 20px;
     fill: white;
     cursor: pointer;
 }
 
-.AddFavorite:hover{
+.AddFavorite:hover {
     fill: #ef5350;
 }
 
-.AddFavorite:active{
+.AddFavorite:active {
     transform: scale(1.2);
 }
 
-.AddFavorite.isFavorite{
+.AddFavorite.isFavorite {
     fill: #ef5350;
 }
 
-.CookTime{
-    height:20px;
-    width:auto;
+.CookTime {
+    height: 20px;
+    width: auto;
     stroke: white;
 }
 
-.CookTime:hover{
-    fill:none
+.CookTime:hover {
+    fill: none
 }
 
-.CommentIcon{
+.CommentIcon {
     width: 20px;
     height: 20px;
     fill: #7b8b9a;
-    stroke:#7b8b9a;
+    stroke: #7b8b9a;
 }
 
-.ServingsIcon{
-    height:20px;
-    width:auto;
-    stroke: white; 
+.ServingsIcon {
+    height: 20px;
+    width: auto;
+    stroke: white;
 }
 
-.ServingsIcon:hover{
-    fill:none
+.ServingsIcon:hover {
+    fill: none
 }
 
 @media (min-width: 768px) {
-    .RecipeCardWrapper {
+    :host {
         height: 210px;
         flex-direction: row;
     }
-    .RecipeImage{
-        width:188px;
+
+    /* .RecipeCardWrapper {
+        height: 210px;
+        flex-direction: row;
+    } */
+    .RecipeImage {
+        width: 188px;
     }
-    .TextWrapper{
+
+    .TextWrapper {
         width: calc(100% - 188px);
     }
-    .RecipeName{
+
+    .RecipeName {
         line-height: 39px;
     }
 }

@@ -27,6 +27,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { RecipesModule } from './recipes/recipes.module';
 import { CoreModule } from './core/core.module';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { CoreModule } from './core/core.module';
     CommingsoonComponent,
     AboutUsComponent,
     HowItWorksComponent,
+    AccountSettingsComponent,
+    PasswordResetComponent,
   ],
   bootstrap: [AppComponent],
 })

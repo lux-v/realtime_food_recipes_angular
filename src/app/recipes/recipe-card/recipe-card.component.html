@@ -1,37 +1,36 @@
-<div class="RecipeCardWrapper">
-    <div class="ImageWrapper">
-        <img class="RecipeImage" src="{{ recipe.imgUrl }}" />
-    </div>
-    <div class="TextWrapper">
-        <div class="NameFavoritesWrapper">
-            <p class="RecipeName">{{ recipe.name }}</p>
-            <div class="FavoriteIconWrapper">
-                <svg-icon 
-                    [class]="isLikedByUser ? 'AddFavorite isFavorite': 'AddFavorite'" 
-                    [applyClass]="true"
-                    src="../../../../assets/img/add-favorite.svg"
-                    (click)="handleFavoriteClick($event)">
-                </svg-icon>
-            </div>
-        </div>
-        <p class="RecipeDescription">{{ recipe.description }}</p>
-
-        <div class="RecipeIngredientsWrapper">
-            <app-chip *ngFor="let ingredient of recipe.ingredients">
-                {{ ingredient }}
-            </app-chip>
-        </div>
-
-
-        <div class="BottomTextWrapper" >
-            <p class="RecipeCategory">{{ recipe.category }}</p>
-            <div class="CookTimeWrapper">
-                <img class="CookTime" src="../../../../assets/img/clock-icon.svg" />
-                <p class="CookTimeLabel">
-                    {{recipe.cookTimeMin }}<span style="font-size: 10px;">(min)</span>
-                </p>
-            </div>
-        </div>
-    </div>
-
+<!-- <div class="RecipeCardWrapper"> -->
+<div class="ImageWrapper">
+  <img class="RecipeImage" src="{{ recipe.imgUrl }}" />
 </div>
+<div class="TextWrapper">
+  <div class="NameFavoritesWrapper">
+    <p class="RecipeName">{{ recipe.name }}</p>
+    <div class="FavoriteIconWrapper">
+      <svg-icon
+        [class]="isLikedByUser ? 'AddFavorite isFavorite' : 'AddFavorite'"
+        [applyClass]="true"
+        src="../../../../assets/img/add-favorite.svg"
+        (click)="handleFavoriteClick($event)"
+      >
+      </svg-icon>
+    </div>
+  </div>
+  <p class="RecipeDescription">{{ recipe.description }}</p>
+
+  <div class="RecipeIngredientsWrapper">
+    <app-chip *ngFor="let ingredient of recipe.ingredients">
+      {{ ingredient }}
+    </app-chip>
+  </div>
+
+  <div class="BottomTextWrapper">
+    <p class="RecipeCategory">{{ recipe.category }}</p>
+    <div class="CookTimeWrapper">
+      <img class="CookTime" src="../../../../assets/img/clock-icon.svg" />
+      <p class="CookTimeLabel">
+        {{ recipe.cookTimeMin }}<span style="font-size: 10px">(min)</span>
+      </p>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

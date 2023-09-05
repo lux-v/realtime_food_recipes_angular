@@ -17,6 +17,15 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
 import { ContentComponent } from './components/layout/content/content.component';
+import { BackdropComponent } from './components/backdrop/backdrop.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuCardComponent } from './components/menu-card/menu-card.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { MostPopularRecipeComponent } from './components/most-popular-recipe/most-popular-recipe.component';
+import { PresetColorComponent } from './components/preset-color/preset-color.component';
+import { StatsCardComponent } from './components/stats-card/stats-card.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 
 @NgModule({
@@ -42,7 +51,16 @@ import { ContentComponent } from './components/layout/content/content.component'
     CardBottomComponent, 
     ChipComponent,
     BreadcrumbsComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    BackdropComponent,
+    CommentSectionComponent,
+    MenuComponent,
+    MenuCardComponent,
+    ModalComponent,
+    MostPopularRecipeComponent,
+    PresetColorComponent,
+    StatsCardComponent,
+    ToastComponent
   ],
   exports: [
     LayoutComponent,
