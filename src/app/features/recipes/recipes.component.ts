@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../shared/components/button/button.component';
-import { AuthService } from '../core/auth.service';
 import { RecipesService } from './recipes.service';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css', '../shared/shared.styles.css']
+  styleUrls: ['./recipes.component.css', '../../shared/shared.styles.css']
 })
 export class RecipesComponent implements OnInit {
   recipes = null;
   filteredRecipes = null;
   searchRecipe = null;
-    
+
   constructor(
     private recipeService: RecipesService,
-    private router : Router,
-   ) {  }
+    private router: Router,
+  ) { }
 
   fetchRecipes = async () => {
     try {
@@ -26,22 +24,22 @@ export class RecipesComponent implements OnInit {
       this.filteredRecipes = recipesData;
       this.searchRecipe = recipesData;
     } catch (error) {
-        alert(error.message);
+      alert(error.message);
     }
   };
 
-  async ngOnInit(){
+  async ngOnInit() {
     await this.fetchRecipes();
   }
 
 
-   handleSearchInput = (e) => {
+  handleSearchInput = (e) => {
     const searchValue = e.target.value.toLowerCase();
     if (searchValue === "") {
-      this.searchRecipe=this.filteredRecipes
+      this.searchRecipe = this.filteredRecipes
     }
 
-    this.searchRecipe=
+    this.searchRecipe =
       this.filteredRecipes.filter(
         (recipes) =>
           recipes.name.toLowerCase().includes(searchValue) ||
@@ -49,7 +47,7 @@ export class RecipesComponent implements OnInit {
       )
   };
 
-  navigate= (id) => {
+  navigate = (id) => {
     this.router.navigate([`/recipes/${id}`]);
   }
 }

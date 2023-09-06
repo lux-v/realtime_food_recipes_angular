@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RecipesService } from './recipes.service';
 import { RecipeLikeService } from './recipe-like.service';
 //modules
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 //components
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../core/auth.service';
-import { CheckImageService } from '../../shared/services/check-image.service';
+import { AuthService } from '../../../core/auth.service';
+import { CheckImageService } from '../../../shared/services/check-image.service';
 import { RecipeLikeService } from '../recipe-like.service';
 
 @Component({
@@ -17,11 +17,11 @@ export class RecipeCardComponent implements OnInit {
   recipeLikes: number;
 
   constructor(
-    private recipeLikeService: RecipeLikeService, 
-    private authService: AuthService, 
+    private recipeLikeService: RecipeLikeService,
+    private authService: AuthService,
     private checkImageService: CheckImageService
-  ) { 
-   this.userData = this.authService.userData;
+  ) {
+    this.userData = this.authService.userData;
   }
 
   ngOnInit() {

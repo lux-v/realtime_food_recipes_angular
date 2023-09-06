@@ -1,28 +1,28 @@
 import { Component, Input } from '@angular/core';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 //services
-import { AuthService } from '../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-commingsoon',
   templateUrl: './commingsoon.component.html',
-  styleUrls: ['../../app/landing/landing.component.css'],
+  styleUrls: ['../landing/landing.component.css'],
   styles: [`:host { display: flex; }`]
 })
 export class CommingsoonComponent {
-  @Input()title: string;
+  @Input() title: string;
 
-  isLoggedIn:boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor(
     private _location: Location,
     private authService: AuthService
-    ) {
-      this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
-        this.isLoggedIn = isLoggedIn;
-      });
-    }
-  
+  ) {
+    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
+
   backClicked() {
     this._location.back();
   }

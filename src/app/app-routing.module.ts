@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule,  Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 //guard
 import { NotAuthorizedGuard } from './core/not-authorized.guard';
 import { AuthorizedGuard } from './core/authorized.guard';
 //components
-import { ErrorpageComponent,} from './errorpage/errorpage.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LandingComponent } from './landing/landing.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import { ErrorpageComponent, } from './features/errorpage/errorpage.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { LandingComponent } from './features/landing/landing.component';
+import { AboutUsComponent } from './features/about-us/about-us.component';
+import { HowItWorksComponent } from './features/how-it-works/how-it-works.component';
 
 
 const routes: Routes = [
@@ -16,10 +16,10 @@ const routes: Routes = [
     path: '',
     component: LandingComponent,
     pathMatch: 'full',
-    canActivate:[NotAuthorizedGuard]
+    canActivate: [NotAuthorizedGuard]
   },
   {
-    path: 'dashboard', 
+    path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthorizedGuard],
   },
@@ -34,19 +34,19 @@ const routes: Routes = [
   {
     path: 'recipes',
     loadChildren: () =>
-      import('./recipes/recipes.module').then((mod) => mod.RecipesModule),
+      import('./features/recipes/recipes.module').then((mod) => mod.RecipesModule),
   },
   {
     path: 'login',
     loadChildren: () =>
-      import('./login/login.module').then((mod) => mod.LoginModule),
-    canActivate:[NotAuthorizedGuard]
+      import('./features/login/login.module').then((mod) => mod.LoginModule),
+    canActivate: [NotAuthorizedGuard]
   },
   {
     path: 'signup',
     loadChildren: () =>
-      import('./signup/signup.module').then((mod) => mod.SignupModule),
-    canActivate:[NotAuthorizedGuard]
+      import('./features/signup/signup.module').then((mod) => mod.SignupModule),
+    canActivate: [NotAuthorizedGuard]
   },
 
   { path: '**', component: ErrorpageComponent },
@@ -55,10 +55,10 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 

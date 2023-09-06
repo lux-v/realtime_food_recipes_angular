@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //guard
-import { AuthorizedGuard } from '../core/authorized.guard';
+import { AuthorizedGuard } from '../../core/authorized.guard';
 //components
 import { RecipesComponent } from './recipes.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
@@ -21,7 +21,7 @@ const routes: Routes = [
     resolve: [RecipesResolverService]
 
   },
-  
+
 ];
 
 @NgModule({
