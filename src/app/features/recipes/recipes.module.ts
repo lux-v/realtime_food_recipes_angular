@@ -13,6 +13,7 @@ import { RecipeRoutingModule } from './recipe-routing.module';
 import { RouterModule } from '@angular/router';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { RecipesAddNewComponent } from './recipes-add-new/recipes-add-new.component';
+import { SearchRecipeComponent } from './search-recipe/search-recipe.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RecipesAddNewComponent } from './recipes-add-new/recipes-add-new.compon
     RecipeDetailComponent,
     RecipeCardComponent,
     RecipesAddNewComponent,
+    SearchRecipeComponent,
   ],
   providers: [
     RecipesService,

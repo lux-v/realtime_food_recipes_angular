@@ -23,6 +23,7 @@ export class RecipesComponent implements OnInit {
       this.recipes = recipesData;
       this.filteredRecipes = recipesData;
       this.searchRecipe = recipesData;
+
     } catch (error) {
       alert(error.message);
     }
@@ -33,19 +34,7 @@ export class RecipesComponent implements OnInit {
   }
 
 
-  handleSearchInput = (e) => {
-    const searchValue = e.target.value.toLowerCase();
-    if (searchValue === "") {
-      this.searchRecipe = this.filteredRecipes
-    }
 
-    this.searchRecipe =
-      this.filteredRecipes.filter(
-        (recipes) =>
-          recipes.name.toLowerCase().includes(searchValue) ||
-          recipes.description.toLowerCase().includes(searchValue)
-      )
-  };
 
   navigate = (id) => {
     this.router.navigate([`/recipes/${id}`]);

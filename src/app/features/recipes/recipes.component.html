@@ -1,48 +1,42 @@
 <app-layout title="Recipes">
   <app-card *ngIf="searchRecipe; else loading">
-    <div style="width:min-content;" headingElement>
-      <app-button  [isTertiary]="true">Filter</app-button>
+    <div style="width: min-content" headingElement>
+      <app-button [isTertiary]="true">Filter</app-button>
     </div>
     <!-- This angular documentation shows to use "keyup" -->
     <!-- https://angular.io/guide/user-input -->
-    <input
-        headingElement
-        type="text"
-        id="searchBar"
-        class="FieldStyleType1 SearchBar"
-        placeholder="Search name or description"
-        (keyup)="handleSearchInput($event)"
-        />
-    
-        <div style="margin-bottom: 25px; width:min-content;">
-          <app-button>Add Recipe +</app-button>
-        </div>
-        <div class="RecipeWrapper">
-          <div *ngIf="searchRecipe?.length === 0"
-              style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-                "
-              
-          >
-            <p>No recipes found</p>
-          </div>
-          <app-recipe-card
-            *ngFor="let recipe of searchRecipe"
-            [recipe]="recipe"
-            (click)="navigate(recipe.id)"
-          ></app-recipe-card>
-        </div>
+    <app-search-recipe
+      headingElement
+      [filteredRecipes]="filteredRecipes"
+      (searchRecipe)="searchRecipe = $event"
+    ></app-search-recipe>
+
+    <div style="margin-bottom: 25px; width: min-content">
+      <app-button>Add Recipe +</app-button>
+    </div>
+    <div class="RecipeWrapper">
+      <div
+        *ngIf="searchRecipe?.length === 0"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        "
+      >
+        <p>No recipes found</p>
+      </div>
+      <app-recipe-card
+        *ngFor="let recipe of searchRecipe"
+        [recipe]="recipe"
+        (click)="navigate(recipe.id)"
+      ></app-recipe-card>
+    </div>
   </app-card>
 </app-layout>
 
-
-
-
 <ng-template #loading>
   <div class="LoadingSpinnerWrapper">
-    <app-loading-spinner size='120px'></app-loading-spinner>
+    <app-loading-spinner size="120px"></app-loading-spinner>
   </div>
 </ng-template>
